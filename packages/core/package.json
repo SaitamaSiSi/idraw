@@ -1,0 +1,35 @@
+{
+  "name": "@idraw/core",
+  "version": "0.3.1-alpha.1",
+  "description": "",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "unpkg": "dist/index.global.js",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "dist/**/*.ts",
+    "dist/**/*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaitamaSiSi/idraw.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SaitamaSiSi/idraw/issues"
+  },
+  "homepage": "https://github.com/SaitamaSiSi/idraw#readme",
+  "author": "chenshenhai",
+  "license": "MIT",
+  "devDependencies": {
+    "@idraw/types": "^0.3.1-alpha.1"
+  },
+  "dependencies": {
+    "@idraw/board": "^0.3.1-alpha.1",
+    "@idraw/renderer": "^0.3.1-alpha.1",
+    "@idraw/util": "^0.3.1-alpha.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "5cc462b9206ea0e4e70b5183771dfbf694402483"
+}
