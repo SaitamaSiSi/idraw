@@ -1,11 +1,11 @@
 {
-  "name": "@idraw/types",
-  "version": "0.3.2-alpha.0",
+  "name": "@idraw_zyh/types",
+  "version": "0.3.2",
   "description": "",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {},
-  "author": "chenshenhai",
+  "author": "zhuoyuhan",
   "license": "MIT",
   "files": [
     "src/**/*.ts",
@@ -22,5 +22,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "5cc462b9206ea0e4e70b5183771dfbf694402483"
+  "gitHead": "962f3415532a4583ec3e04ab3c0efbb7f4ad6e31"
 }
