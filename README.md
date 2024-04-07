@@ -1,3 +1,5 @@
+<h1 align="center">该项目Fork来自https://github.com/idrawjs/idraw</h1>
+
 <h1 align="center">iDraw.js</h1>
 
 <p align="center">iDraw.js is a simple JavaScript framework for Drawing on the web.</p>
