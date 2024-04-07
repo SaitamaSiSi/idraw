@@ -18,10 +18,10 @@
     <img src="https://codecov.io/gh/SaitamaSiSi/idraw/branch/main/graph/badge.svg?token=MICIC9SCKY"/>
   </a>
     
-  <a href="https://www.npmjs.com/package/idraw">
+  <a href="https://www.npmjs.com/package/idraw_zyh">
     <img src="https://img.shields.io/npm/v/idraw.svg?sanitize=idraw" alt="Version">
   </a>
-  <a href="https://www.npmjs.com/package/idraw">
+  <a href="https://www.npmjs.com/package/idraw_zyh">
     <img src="https://img.shields.io/npm/l/idraw.svg?sanitize=true" alt="License">
   </a>
 </p>

@@ -1,5 +1,5 @@
 {
-  "name": "@idraw_zyh/util",
+  "name": "idraw_zyh_util",
   "version": "0.3.2",
   "description": "",
   "main": "dist/esm/index.js",
@@ -18,13 +18,13 @@
     "url": "https://github.com/SaitamaSiSi/idraw/issues"
   },
   "homepage": "https://github.com/SaitamaSiSi/idraw#readme",
-  "author": "chenshenhai",
+  "author": "zhuoyuhan",
   "license": "MIT",
   "devDependencies": {
-    "@idraw_zyh/types": "^0.3.2"
+    "idraw_zyh_types": "^0.3.2"
   },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "962f3415532a4583ec3e04ab3c0efbb7f4ad6e31"
+  "gitHead": "07c8ae8795517a0c94962bcc38a93e32e18cb5d5"
 }
