@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@idraw/board scale 001 1`] = `
+exports[`idraw_zyh_board scale 001 1`] = `
 Array [
   Object {
     "props": Object {
@@ -107,7 +107,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/board scale 001 2`] = `
+exports[`idraw_zyh_board scale 001 2`] = `
 Array [
   Object {
     "props": Object {
@@ -196,7 +196,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/board scale 002 1`] = `
+exports[`idraw_zyh_board scale 002 1`] = `
 Array [
   Object {
     "props": Object {
@@ -303,7 +303,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/board scale 002 2`] = `
+exports[`idraw_zyh_board scale 002 2`] = `
 Array [
   Object {
     "props": Object {
@@ -392,7 +392,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/board scale 003 1`] = `
+exports[`idraw_zyh_board scale 003 1`] = `
 Array [
   Object {
     "props": Object {
@@ -499,7 +499,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/board scale 003 2`] = `
+exports[`idraw_zyh_board scale 003 2`] = `
 Array [
   Object {
     "props": Object {
@@ -588,7 +588,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/board scale 1`] = `
+exports[`idraw_zyh_board scale 1`] = `
 Array [
   Object {
     "props": Object {
@@ -695,7 +695,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/board scale 2`] = `
+exports[`idraw_zyh_board scale 2`] = `
 Array [
   Object {
     "props": Object {

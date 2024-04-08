@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@idraw/core moveDownElement 1`] = `
+exports[`idraw_zyh_core moveDownElement 1`] = `
 Array [
   Object {
     "props": Object {
@@ -545,7 +545,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/core moveDownElement 2`] = `
+exports[`idraw_zyh_core moveDownElement 2`] = `
 Array [
   Object {
     "props": Object {
@@ -634,7 +634,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/core moveUpElement 1`] = `
+exports[`idraw_zyh_core moveUpElement 1`] = `
 Array [
   Object {
     "props": Object {
@@ -1179,7 +1179,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/core moveUpElement 2`] = `
+exports[`idraw_zyh_core moveUpElement 2`] = `
 Array [
   Object {
     "props": Object {

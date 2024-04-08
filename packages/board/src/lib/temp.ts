@@ -1,5 +1,8 @@
 import { TypeBoardOptions, TypeContext } from 'idraw_zyh_types';
 import { Context } from 'idraw_zyh_util';
+// tempTest
+// import { TypeBoardOptions, TypeContext } from '../../../types/src/index';
+// import { Context } from '../../../util/src/index';
 
 type TempDataDesc = {
   ctx: TypeContext,

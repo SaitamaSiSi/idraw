@@ -1,7 +1,7 @@
 import { Board } from '../src';
 import { getData } from './data';
 
-describe('@idraw/board', () => {
+describe('idraw_zyh_board', () => {
   test('scroll', async () => {  
     document.body.innerHTML = `
       <div id="mount"></div>

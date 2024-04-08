@@ -12,7 +12,7 @@ function delay(time: number): Promise<void> {
   });
 }
 
-describe("idraw", () => {
+describe("idraw_zyh", () => {
 
   beforeEach(() => {
     requestAnimationFrameMock.reset();

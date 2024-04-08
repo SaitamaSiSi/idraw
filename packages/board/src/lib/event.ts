@@ -1,4 +1,6 @@
 import { TypePoint } from 'idraw_zyh_types';
+// tempTest
+// import { TypePoint } from '../../../types/src/index';
 
 export interface TypeBoardEventArgMap {
   'doubleClick': TypePoint;

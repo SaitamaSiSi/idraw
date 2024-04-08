@@ -1,9 +1,11 @@
-import { TypeData } from '@idraw/types';
+import { TypeData } from 'idraw_zyh_types';
+// tempTest
+// import { TypeData } from '../../../types/src/index';
 import  { Core } from './../../src';
 import { getData } from './../data';
 import { Element } from './../../src/lib/element';
 
-describe("@idraw/core: lib/element", () => {
+describe("idraw_zyh_core: lib/element", () => {
   document.body.innerHTML = `
     <div id="mount"></div>
   `;

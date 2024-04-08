@@ -1,8 +1,6 @@
-import {
-  TypeElement,
-  TypeElemDesc,
-  TypePoint,
-} from 'idraw_zyh_types';
+import { TypeElement, TypeElemDesc, TypePoint, } from 'idraw_zyh_types';
+// tempTest
+// import { TypeElement, TypeElemDesc, TypePoint, } from '../../../types/src/index';
 
 
 export function parseRadianToAngle(radian: number): number {

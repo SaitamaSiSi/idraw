@@ -1,5 +1,7 @@
 import { TypeHelperWrapperControllerDirection, TypePoint } from 'idraw_zyh_types';
-import { Mode, CursorStatus } from './../constant/static';
+// tempTest
+// import { TypeHelperWrapperControllerDirection, TypePoint } from '../../../types/src/index';
+import { Mode, CursorStatus } from './constant/static';
 
 type TempDataDesc = {
   hasInited: boolean;

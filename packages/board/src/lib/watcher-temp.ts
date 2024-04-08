@@ -1,4 +1,6 @@
 import { TypePoint } from 'idraw_zyh_types'
+// tempTest
+// import { TypePoint } from '../../../types/src/index'
 
 type TempDataDesc = {
   prevClickPoint: TypePoint & { t: number } | null,

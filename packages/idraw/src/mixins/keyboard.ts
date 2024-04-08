@@ -1,5 +1,8 @@
 import { deepClone } from 'idraw_zyh_util';
 import { TypeElement, TypeElemDesc } from 'idraw_zyh_types';
+// tempTest
+// import { deepClone } from '../../../util/src/index';
+// import { TypeElement, TypeElemDesc } from '../../../types/src/index';
 import iDraw from './../index';
 import { _tempData } from './../names';
 

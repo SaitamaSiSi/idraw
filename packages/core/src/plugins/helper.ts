@@ -3,6 +3,12 @@ import {
   TypeHelperPluginEventResult,
 } from 'idraw_zyh_types';
 import { createUUID } from 'idraw_zyh_util';
+// tempTest
+// import {
+//   InterfaceHelperPlugin, TypeHelperPluginEventDetail,
+//   TypeHelperPluginEventResult,
+// } from '../../../types/src/index';
+// import { createUUID } from '../../../util/src/index';
 
 
 export class HelperPlugin implements Required<InterfaceHelperPlugin> {

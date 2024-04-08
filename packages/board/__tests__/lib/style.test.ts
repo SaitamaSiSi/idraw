@@ -4,7 +4,7 @@ import {
 } from './../../src/lib/style';
 
 
-describe('@idraw/board: src/lib/style', () => {
+describe('idraw_zyh_board: src/lib/style', () => {
   test('mergeCSS2StyleAttr', () => {
     const str = mergeCSS2StyleAttr({
       'width': '12px',

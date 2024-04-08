@@ -1,7 +1,8 @@
-import {
-  TypeElement, TypeElemDesc, TypeElementBase,
-}  from 'idraw_zyh_types';
+import { TypeElement, TypeElemDesc, TypeElementBase, }  from 'idraw_zyh_types';
 import { deepClone, createUUID } from 'idraw_zyh_util';
+// tempTest
+// import { TypeElement, TypeElemDesc, TypeElementBase, }  from '../../../types/src/index';
+// import { deepClone, createUUID } from '../../../util/src/index';
 import {
   _board, _data, _opts, _config, _renderer, _element, _engine,
   _tempData, _draw, _coreEvent, _emitChangeScreen, _emitChangeData,

@@ -1,4 +1,6 @@
 import { TypePoint } from 'idraw_zyh_types';
+// tempTest
+// import { TypePoint } from '../../../types/src/index';
 import { BoardEvent, TypeBoardEventArgMap } from './event';
 import { TempData } from './watcher-temp';
 

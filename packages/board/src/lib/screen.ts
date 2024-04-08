@@ -2,6 +2,11 @@ import {
   TypeBoardSizeOptions, TypeScreenPosition,
   TypeContext, TypeScreenSize,
 } from 'idraw_zyh_types';
+// tempTest
+// import {
+//   TypeBoardSizeOptions, TypeScreenPosition,
+//   TypeContext, TypeScreenSize,
+// } from '../../../types/src/index';
 
 type Options = {
   width: number;

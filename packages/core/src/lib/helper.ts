@@ -6,6 +6,15 @@ import {
 } from 'idraw_zyh_types';
 import { Board } from 'idraw_zyh_board';
 import { deepClone } from 'idraw_zyh_util';
+// tempTest
+// import {
+//   TypeData, TypeHelper, TypeHelperConfig, TypeHelperUpdateOpts,
+//   TypeHelperWrapperControllerDirection, TypeElement,
+//   TypeElemDesc, TypeContext, TypePoint, TypeConfigStrict,
+//   TypeHeplerSelectedElementWrapper
+// } from '../../../types/src/index';
+// import { Board } from '../../../board/src/index';
+// import { deepClone } from '../../../util/src/index';
 import { parseAngleToRadian, calcElementCenter } from './calculate';
 import { rotateContext, rotateElement } from './transform';
 import { LIMIT_QBLIQUE_ANGLE } from './../constant/element';

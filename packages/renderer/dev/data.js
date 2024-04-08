@@ -19,7 +19,7 @@ const data = {
       name: "text-002",
       x: 40,
       y: 40,
-      w: 100,
+      w: 120,
       h: 290,
       // angle: 30,
       type: "text",
@@ -32,7 +32,8 @@ const data = {
         borderRadius: 0,
         borderWidth: 10,
         borderColor: "#ff5722",
-        verticalAlign: 'middle'
+        verticalAlign: 'middle',
+        textAlign: 'center'
       },
     },
     // {

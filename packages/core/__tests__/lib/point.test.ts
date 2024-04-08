@@ -1,6 +1,6 @@
 import  { Core } from '../../src';
 
-describe('@idraw/core', () => {
+describe('idraw_zyh_core', () => {
 
   document.body.innerHTML = `
     <div id="mount"></div>

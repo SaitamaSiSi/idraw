@@ -4,6 +4,13 @@ import {
 } from 'idraw_zyh_types';
 import { deepClone, throttle } from 'idraw_zyh_util';
 import { Board } from 'idraw_zyh_board';
+// tempTest
+// import {
+//   TypePoint, TypeHelperWrapperControllerDirection,InterfaceHelperPlugin,
+//   TypeConfigStrict, TypeData, TypeHelperConfig,
+// } from '../../../types/src/index';
+// import { deepClone, throttle } from '../../../util/src/index';
+// import { Board } from '../../../board/src/index';
 import { Mode, CursorStatus } from './../constant/static';
 import { TempData } from './engine-temp';
 import { Helper } from './helper';

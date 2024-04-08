@@ -1,7 +1,6 @@
-import {
-  TypeData,
-  TypeCoreOptions,
-} from 'idraw_zyh_types';
+import { TypeData, TypeCoreOptions, } from 'idraw_zyh_types';
+// tempTest
+// import { TypeData, TypeCoreOptions, } from '../../types/src/index';
 
 export type Options = {
   maxRecords?: number;

@@ -1,9 +1,7 @@
-import {
-  TypeContext,
-  // TypeElemDesc,
-  TypeElement,
-} from 'idraw_zyh_types';
+import { TypeContext, TypeElement, } from 'idraw_zyh_types';
 import { is, istype, isColorStr } from 'idraw_zyh_util';
+// tempTest
+// import { TypeContext, TypeElement, } from '../../../../types/src/index';
 // import { is, istype, isColorStr } from '../../../../util/src/index';
 import { rotateElement } from './../transform';
 

@@ -6,6 +6,15 @@ import {
 import { Board } from 'idraw_zyh_board';
 import { deepClone } from 'idraw_zyh_util';
 import { Renderer } from 'idraw_zyh_renderer';
+// tempTest
+// import {
+//   TypeData, TypePoint, TypeBoardSizeOptions,
+//   TypeConfig, TypeConfigStrict, TypeElementBase,
+//   TypeElement, TypeElemDesc, TypeContext, TypeCoreOptions,  TypeScreenContext, TypeScreenData,
+// }  from '../../types/src/index';
+// import { Board } from '../../board/src/index';
+// import { deepClone } from '../../util/src/index';
+// import { Renderer } from '../../renderer/src/index';
 import is, { TypeIs } from './lib/is';
 import check, { TypeCheck } from './lib/check';
 import {

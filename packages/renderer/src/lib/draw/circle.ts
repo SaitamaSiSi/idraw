@@ -1,4 +1,6 @@
 import { TypeContext, TypeElement, } from 'idraw_zyh_types';
+// tempTest
+// import { TypeContext, TypeElement, } from '../../../../types/src/index';
 import { rotateElement } from './../transform';
 import { clearContext } from './base';
 

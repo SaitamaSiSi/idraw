@@ -1,10 +1,7 @@
-import {
-  TypeContext,
-  TypeData,
-  TypeElement,
-  // TypePoint,
-} from 'idraw_zyh_types';
+import { TypeContext, TypeData, TypeElement, } from 'idraw_zyh_types';
 import { isColorStr } from 'idraw_zyh_util';
+// tempTest
+// import { TypeContext, TypeData, TypeElement, } from '../../../../types/src/index';
 // import { isColorStr } from '../../../../util/src/index';
 import Loader from '../loader';
 import { clearContext, drawBgColor } from './base';

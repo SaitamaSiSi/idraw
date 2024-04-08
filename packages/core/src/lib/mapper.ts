@@ -1,5 +1,8 @@
 import { TypeData, TypePoint, TypePointCursor } from 'idraw_zyh_types';
 import { Board } from 'idraw_zyh_board';
+// tempTest
+// import { TypeData, TypePoint, TypePointCursor } from '../../../types/src/index';
+// import { Board } from '../../../board/src/index';
 import { Helper } from './helper';
 import { Element } from './element';
 

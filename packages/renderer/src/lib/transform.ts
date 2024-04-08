@@ -1,9 +1,6 @@
-import {
-  TypeContext,
-  TypePoint,
-  TypeElement,
-  TypeElemDesc,
-} from 'idraw_zyh_types';
+import { TypeContext, TypePoint, TypeElement, TypeElemDesc, } from 'idraw_zyh_types';
+// tempTest
+// import { TypeContext, TypePoint, TypeElement, TypeElemDesc, } from '../../../types/src/index';
 import { calcElementCenter, parseAngleToRadian } from './calculate';
 
 function rotateElement(

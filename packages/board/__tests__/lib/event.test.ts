@@ -1,7 +1,9 @@
-import { TypePoint } from '@idraw/types';
+import { TypePoint } from 'idraw_zyh_types';
+// tempTest
+// import { TypePoint } from '../../../types/src/index';
 import { BoardEvent } from './../../src/lib/event';
 
-describe('@idraw/board: src/lib/event', () => {
+describe('idraw_zyh_board: src/lib/event', () => {
 
   // 'doubleClick': TypePoint;
   // 'hover': TypePoint;

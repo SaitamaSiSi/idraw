@@ -1,7 +1,6 @@
-import {
-  TypeContext,
-  TypeElement,
-} from 'idraw_zyh_types';
+import { TypeContext, TypeElement, } from 'idraw_zyh_types';
+// tempTest
+// import { TypeContext, TypeElement, } from '../../../../types/src/index';
 import { rotateElement } from '../transform';
 import Loader from '../loader';
  

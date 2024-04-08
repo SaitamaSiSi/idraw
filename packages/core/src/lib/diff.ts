@@ -1,4 +1,6 @@
 import { TypeElement, TypeData, TypeElemDesc } from 'idraw_zyh_types';
+// tempTest
+// import { TypeElement, TypeData, TypeElemDesc } from '../../../types/src/index';
 
 type TypeElementMap = {
   [uuid: string]: TypeElement<keyof TypeElemDesc>

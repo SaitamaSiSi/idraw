@@ -1,4 +1,6 @@
 import { TypeElemDesc, TypeElement } from 'idraw_zyh_types';
+// tempTest
+// import { TypeElemDesc, TypeElement } from '../../../types/src/index';
 import { Record } from './../types';
 
 

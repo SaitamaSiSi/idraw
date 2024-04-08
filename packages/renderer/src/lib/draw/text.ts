@@ -1,9 +1,7 @@
-import {
-  TypeContext, 
-  TypeElemDescText, 
-  TypeElement,
-} from 'idraw_zyh_types';
+import { TypeContext,  TypeElemDescText,  TypeElement, } from 'idraw_zyh_types';
 import { is, isColorStr } from 'idraw_zyh_util';
+// tempTest
+// import { TypeContext,  TypeElemDescText,  TypeElement, } from '../../../../types/src/index';
 // import { is, isColorStr } from '../../../../util/src/index';
 import Loader from '../loader';
 import { clearContext, drawBox } from './base';
@@ -108,16 +106,16 @@ export function drawText(
     {
       const _y = elem.y + startY;
       if (desc.textShadowColor !== undefined && isColorStr(desc.textShadowColor)) {
-        ctx.shadowColor = desc.textShadowColor;
+        ctx.setShadowColor(desc.textShadowColor);
       }
       if (desc.textShadowOffsetX !== undefined && is.number(desc.textShadowOffsetX)) {
-        ctx.shadowOffsetX = desc.textShadowOffsetX;
+        ctx.setShadowOffsetX(desc.textShadowOffsetX);
       }
       if (desc.textShadowOffsetY !== undefined && is.number(desc.textShadowOffsetY)) {
-        ctx.shadowOffsetY = desc.textShadowOffsetY;
+        ctx.setShadowOffsetY(desc.textShadowOffsetY);
       }
       if (desc.textShadowBlur !== undefined && is.number(desc.textShadowBlur)) {
-        ctx.shadowBlur = desc.textShadowBlur;
+        ctx.setShadowBlur(desc.textShadowBlur);
       }
       lines.forEach((line, i) => {
         let _x = elem.x;

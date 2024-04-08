@@ -1,5 +1,8 @@
 import { Core } from 'idraw_zyh_core';
 import { TypeData, TypeConfig, } from 'idraw_zyh_types';
+// tempTest
+// import { Core } from '../../core/src/index';
+// import { TypeData, TypeConfig, } from '../../types/src/index';
 import { Options, PrivateOptions } from './types';
 import { defaultOptions } from './config';
 import { TempData } from './lib/temp';

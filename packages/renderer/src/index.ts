@@ -1,5 +1,7 @@
 import { TypeData, TypeContext, TypeElement, TypeElemDesc } from 'idraw_zyh_types';
 import { createUUID, deepClone, Context } from 'idraw_zyh_util';
+// tempTest
+// import { TypeData, TypeContext, TypeElement, TypeElemDesc } from '../../types/src/index';
 // import { createUUID, deepClone, Context } from '../../util/src/index';
 import { drawContext } from './lib/draw';
 import { TypeLoadDataItem } from './lib/loader-event';

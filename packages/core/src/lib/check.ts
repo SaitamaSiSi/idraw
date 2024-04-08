@@ -1,5 +1,7 @@
 
 import { TypeElementAttrs } from 'idraw_zyh_types';
+// tempTest
+// import { TypeElementAttrs } from '../../../types/src/index';
 import is from './is';
 
 

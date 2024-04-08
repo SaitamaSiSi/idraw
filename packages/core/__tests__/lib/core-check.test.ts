@@ -1,6 +1,6 @@
 import { Core } from './../../src';
 
-describe("@idraw/core static check", () => {
+describe("idraw_zyh_core static check", () => {
 
   test('Core.check.attrs', () => {
     expect(Core.check.attrs({

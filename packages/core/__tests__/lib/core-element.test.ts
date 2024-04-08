@@ -1,8 +1,8 @@
-// import { TypeData } from '@idraw/types';
+// import { TypeData } from 'idraw_zyh_types';
 import  { Core } from '../../src';
 import { getData } from '../data';
 
-describe("@idraw/core: Element API", () => {
+describe("idraw_zyh_core: Element API", () => {
   document.body.innerHTML = `
     <div id="mount"></div>
   `;

@@ -1,5 +1,7 @@
 import { TypeData, TypeElement } from 'idraw_zyh_types';
 import { loadImage, loadSVG, loadHTML, deepClone } from 'idraw_zyh_util';
+// tempTest
+// import { TypeData, TypeElement } from '../../../types/src/index';
 // import { loadImage, loadSVG, loadHTML, deepClone } from '../../../util/src/index';
 import { LoaderEvent, TypeLoadData, TypeLoaderEventArgMap } from './loader-event';
 import { filterScript } from './../util/filter';

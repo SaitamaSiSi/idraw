@@ -1,6 +1,6 @@
 import { Board } from '../src';
 
-describe('@idraw/board', () => {
+describe('idraw_zyh_board', () => {
 
   document.body.innerHTML = `
     <div id="mount"></div>

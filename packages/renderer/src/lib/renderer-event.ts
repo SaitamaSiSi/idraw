@@ -1,4 +1,6 @@
 import { TypeElement, TypeElemDesc } from 'idraw_zyh_types';
+// tempTest
+// import { TypeElement, TypeElemDesc } from '../../../types/src/index';
 
 
 export type TypeRendererEventArgMap = {

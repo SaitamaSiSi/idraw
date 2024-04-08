@@ -2,6 +2,11 @@ import {
   TypeScreenPosition, TypeScreenSize, TypeScreenContext, TypePoint, TypePointCursor,
   TypeBoardOptions, TypeBoardSizeOptions, TypeContext, 
 } from 'idraw_zyh_types';
+// tempTest
+// import { 
+//   TypeScreenPosition, TypeScreenSize, TypeScreenContext, TypePoint, TypePointCursor,
+//   TypeBoardOptions, TypeBoardSizeOptions, TypeContext, 
+// } from '../../types/src/index';
 import util from 'idraw_zyh_util';
 import { ScreenWatcher } from './lib/screen-watcher';
 import { setStyle } from './lib/style';
@@ -267,7 +272,7 @@ export class Board {
     }
     if (this[_opts].canScroll === true) {
 
-      this.on('wheelX', throttle((deltaX) => {
+      this.on('wheelX', throttle((deltaX: number) => {
         this[_doScrollX](deltaX);
       }, 16));
       this.on('wheelY', throttle((deltaY: number) => {

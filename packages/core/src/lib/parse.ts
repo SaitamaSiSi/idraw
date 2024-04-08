@@ -1,4 +1,6 @@
 import { TypeData, TypeElement, TypeElemDesc } from 'idraw_zyh_types';
+// tempTest
+// import { TypeData, TypeElement, TypeElemDesc } from '../../../types/src/index';
 import { elementNames } from './../constant/element';
 
 export function parseData(data: any): TypeData {

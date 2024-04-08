@@ -5,13 +5,13 @@ import { Core } from './../src/';
 import { getData } from './data';
 
 
-describe("@idraw/core", () => {
+describe("idraw_zyh_core", () => {
 
   beforeEach(() => {
     requestAnimationFrameMock.reset();
   })
 
-  test('@idraw/core: context', async () => {  
+  test('idraw_zyh_core: context', async () => {  
     document.body.innerHTML = `
       <div id="mount"></div>
     `;

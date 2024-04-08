@@ -5,6 +5,14 @@ import {
   TypeData,
   TypeScreenData,
 } from 'idraw_zyh_types';
+// tempTest
+// import {
+//   TypeElement,
+//   TypeElemDesc,
+//   TypePoint,
+//   TypeData,
+//   TypeScreenData,
+// } from '../../../types/src/index';
 
 export type TypeCoreEventSelectBaseArg = {
   index: number | null;

@@ -4,6 +4,13 @@ import {
   TypeBoardScrollConfig,
 } from 'idraw_zyh_types';
 import { isColorStr } from 'idraw_zyh_util';
+// tempTest
+// import {
+//   TypePoint,
+//   TypeScreenPosition,
+//   TypeBoardScrollConfig,
+// } from '../../../types/src/index';
+// import { isColorStr } from '../../../util/src/index';
 
 type TypeOptions = {
   width: number,

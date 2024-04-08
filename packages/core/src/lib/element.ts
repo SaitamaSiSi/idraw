@@ -7,6 +7,16 @@ import {
   TypeElemDesc,
 } from 'idraw_zyh_types';
 import { createUUID } from 'idraw_zyh_util';
+// tempTest
+// import {
+//   TypeContext,
+//   TypePoint,
+//   TypeData,
+//   TypeHelperWrapperControllerDirection,
+//   TypeElement,
+//   TypeElemDesc,
+// } from '../../../types/src/index';
+// import { createUUID } from '../../../util/src/index';
 import { rotateElement } from './transform';
 import { calcRadian, calcElementCenter, parseRadianToAngle } from './calculate';
 import { limitAngle, limitNum } from './value';

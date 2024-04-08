@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`idraw context 1`] = `
+exports[`idraw_zyh context 1`] = `
 Array [
   Object {
     "props": Object {
@@ -545,7 +545,7 @@ Array [
 ]
 `;
 
-exports[`idraw context 2`] = `
+exports[`idraw_zyh context 2`] = `
 Array [
   Object {
     "props": Object {
@@ -634,7 +634,7 @@ Array [
 ]
 `;
 
-exports[`idraw undo/redo 1`] = `
+exports[`idraw_zyh undo/redo 1`] = `
 Array [
   Object {
     "props": Object {
@@ -1179,7 +1179,7 @@ Array [
 ]
 `;
 
-exports[`idraw undo/redo 2`] = `
+exports[`idraw_zyh undo/redo 2`] = `
 Array [
   Object {
     "props": Object {

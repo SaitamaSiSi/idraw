@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@idraw/core @idraw/core: context 1`] = `
+exports[`idraw_zyh_core idraw_zyh_core: context 1`] = `
 Array [
   Object {
     "props": Object {
@@ -545,7 +545,7 @@ Array [
 ]
 `;
 
-exports[`@idraw/core @idraw/core: context 2`] = `
+exports[`idraw_zyh_core idraw_zyh_core: context 2`] = `
 Array [
   Object {
     "props": Object {

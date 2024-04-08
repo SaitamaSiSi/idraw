@@ -1,7 +1,6 @@
-import {
-  TypeContext,
-  TypeHelperConfig,
-} from 'idraw_zyh_types';
+import { TypeContext, TypeHelperConfig, } from 'idraw_zyh_types';
+// tempTest
+// import { TypeContext, TypeHelperConfig, } from '../../../../types/src/index';
 import { rotateContext } from './../transform';
 import { clearContext } from './base';
 

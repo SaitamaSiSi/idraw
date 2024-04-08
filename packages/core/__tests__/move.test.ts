@@ -12,7 +12,7 @@ import { getData } from './data';
 //   });
 // }
 
-describe("@idraw/core", () => {
+describe("idraw_zyh_core", () => {
 
   beforeEach(() => {
     requestAnimationFrameMock.reset();

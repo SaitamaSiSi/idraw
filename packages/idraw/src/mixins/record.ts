@@ -1,4 +1,6 @@
 import { TypeData } from 'idraw_zyh_types';
+// tempTest
+// import { TypeData } from '../../../types/src/index';
 import iDraw from './../index';
 import { _tempData } from './../names';
 

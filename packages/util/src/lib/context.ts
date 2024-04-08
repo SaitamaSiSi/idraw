@@ -1,4 +1,6 @@
 import { TypeContext, TypeBoardSizeOptions } from 'idraw_zyh_types';
+// tempTest
+// import { TypeContext, TypeBoardSizeOptions } from '../../../types/src/index';
 
 type Options = {
   width: number;

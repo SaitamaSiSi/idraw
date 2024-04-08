@@ -1,4 +1,6 @@
 import { isColorStr } from "idraw_zyh_util";
+// tempTest
+// import { isColorStr } from "../../../util/src/index";
  
 
 function number(value: any) {
