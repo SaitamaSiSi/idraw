@@ -1,4 +1,4 @@
-<h1 align="center">此项目Fork来自idraw</h1>
+<h1 align="center">此项目Fork来自idraw-0.3.0-alpha.6</h1>
 
 <h1 align="center">iDraw.js</h1>
 
