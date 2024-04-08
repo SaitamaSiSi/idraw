@@ -1,27 +1,32 @@
-type ScreenData = {
+type TypeScreenData = {
   scale: number;
   scrollLeft: number;
   scrollTop: number;
   // selectedElementUUID: string | null;
-};
+}
 
-type ScreenPosition = {
+type TypeScreenPosition = {
   top: number;
   bottom: number;
   left: number;
   right: number;
-};
+}
 
-type ScreenSize = {
+type TypeScreenSize = {
   x: number;
   y: number;
   w: number;
   h: number;
-};
+}
 
-type ScreenContext = {
-  size: ScreenSize;
-  position: ScreenPosition;
-};
+type TypeScreenContext = {
+  size: TypeScreenSize,
+  position: TypeScreenPosition
+}
 
-export { ScreenData, ScreenPosition, ScreenSize, ScreenContext };
+export {
+  TypeScreenData,
+  TypeScreenPosition,
+  TypeScreenSize,
+  TypeScreenContext,
+};

@@ -8,11 +8,11 @@
 ### Quick Start
 
 ```sh
-npm i @idraw/renderer
+npm i idraw_zyh_renderer
 ```
 
 ```js
-import Renderer from '@idraw/renderer';
+import Renderer from 'idraw_zyh_renderer';
 
 const renderer = new Renderer({
   width: 600,
@@ -61,8 +61,3 @@ renderer.on('drawFrameComplete', (e) => {
   // ...
 })
 ```
-
-## Documents
-
-- [Documents](https://idraw.js.org/docs/en/) | [中文文档](https://idraw.js.org/docs/zh/) 
-- [Online Playground](https://idraw.js.org/playground/) | [在线API示例](https://idraw.js.org/playground/)

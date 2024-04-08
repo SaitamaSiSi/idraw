@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -27,8 +27,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm config set registry https://registry.yarnpkg.com/
     # - run: npm install
-    - run: npm install --global pnpm
-    - run: pnpm i
+    - run: npm install --global yarn
+    - run: yarn
     - run: npm run beforetest
     - run: npm run cover
     - name: Upload coverage to Codecov

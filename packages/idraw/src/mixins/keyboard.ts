@@ -1,56 +1,58 @@
-import { deepClone } from '@idraw/util';
-import { DataElement, DataElemDesc } from '@idraw/types';
+import { deepClone } from 'idraw_zyh_util';
+import { TypeElement, TypeElemDesc } from 'idraw_zyh_types';
 import iDraw from './../index';
+import { _tempData } from './../names';
 
 export function copyElements(idraw: iDraw) {
-  if (idraw.getTempData().get('isFocus') !== true) {
+  if (idraw[_tempData].get('isFocus') !== true) {
     return;
   }
   const elems = deepClone(idraw.getSelectedElements());
-  idraw.getTempData().set('clipboardElements', elems);
+  idraw[_tempData].set('clipboardElements', elems);
 }
 
 export function pasteElements(idraw: iDraw) {
-  if (idraw.getTempData().get('isFocus') !== true) {
+  if (idraw[_tempData].get('isFocus') !== true) {
     return;
   }
-  const elems = idraw.getTempData().get('clipboardElements');
+  const elems = idraw[_tempData].get('clipboardElements');
   const moveRate = 0.1;
   elems.forEach((elem) => {
     elem.x += elem.w * moveRate;
     elem.y += elem.w * moveRate;
     idraw.addElement(elem);
   });
-  idraw.getTempData().set('clipboardElements', []);
+  idraw[_tempData].set('clipboardElements', []);
 }
 
 export function cutElements(idraw: iDraw) {
-  if (idraw.getTempData().get('isFocus') !== true) {
+  if (idraw[_tempData].get('isFocus') !== true) {
     return;
   }
   const elems = deepClone(idraw.getSelectedElements());
-  elems.forEach((elem: DataElement<keyof DataElemDesc>) => {
+  elems.forEach((elem: TypeElement<keyof TypeElemDesc>) => {
     idraw.deleteElement(elem.uuid);
-  });
-  idraw.getTempData().set('clipboardElements', elems);
+  })
+  idraw[_tempData].set('clipboardElements', elems);
 }
 
 export function deleteElements(idraw: iDraw) {
-  if (idraw.getTempData().get('isFocus') !== true) {
+  if (idraw[_tempData].get('isFocus') !== true) {
     return;
   }
   const elems = deepClone(idraw.getSelectedElements());
-  elems.forEach((elem: DataElement<keyof DataElemDesc>) => {
+  elems.forEach((elem: TypeElement<keyof TypeElemDesc>) => {
     idraw.deleteElement(elem.uuid);
   });
 }
+
 
 const keyArrowMoveDistance = 4;
 
 export function keyArrowUp(idraw: iDraw) {
   const elems = deepClone(idraw.getSelectedElements());
   if (elems.length > 0) {
-    elems.forEach((elem: DataElement<keyof DataElemDesc>) => {
+    elems.forEach((elem: TypeElement<keyof TypeElemDesc>) => {
       elem.y -= keyArrowMoveDistance;
       idraw.updateElement(elem);
     });
@@ -63,7 +65,7 @@ export function keyArrowUp(idraw: iDraw) {
 export function keyArrowDown(idraw: iDraw) {
   const elems = deepClone(idraw.getSelectedElements());
   if (elems.length > 0) {
-    elems.forEach((elem: DataElement<keyof DataElemDesc>) => {
+    elems.forEach((elem: TypeElement<keyof TypeElemDesc>) => {
       elem.y += keyArrowMoveDistance;
       idraw.updateElement(elem);
     });
@@ -76,7 +78,7 @@ export function keyArrowDown(idraw: iDraw) {
 export function keyArrowLeft(idraw: iDraw) {
   const elems = deepClone(idraw.getSelectedElements());
   if (elems.length > 0) {
-    elems.forEach((elem: DataElement<keyof DataElemDesc>) => {
+    elems.forEach((elem: TypeElement<keyof TypeElemDesc>) => {
       elem.x -= keyArrowMoveDistance;
       idraw.updateElement(elem);
     });
@@ -89,7 +91,7 @@ export function keyArrowLeft(idraw: iDraw) {
 export function keyArrowRight(idraw: iDraw) {
   const elems = deepClone(idraw.getSelectedElements());
   if (elems.length > 0) {
-    elems.forEach((elem: DataElement<keyof DataElemDesc>) => {
+    elems.forEach((elem: TypeElement<keyof TypeElemDesc>) => {
       elem.x += keyArrowMoveDistance;
       idraw.updateElement(elem);
     });

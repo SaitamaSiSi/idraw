@@ -2,7 +2,7 @@ import Context from './../../src/lib/context';
 import { deepClone } from './../../src/index'
 import { getData } from './data';
 
-describe('@idraw/board: src/lib/context', () => {
+describe('idraw_zyh_board: src/lib/context', () => {
   const options = {
     width: 600,
     height: 400,

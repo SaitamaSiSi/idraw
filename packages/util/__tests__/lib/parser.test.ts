@@ -3,7 +3,7 @@ import {
 } from '../../src/lib/parser';
 
 
-describe('@idraw/util: lib/parser', () => {
+describe('idraw_zyh_util: lib/parser', () => {
 
   test('parseHTMLToDataURL', async () => {
     const result = await parseHTMLToDataURL(`

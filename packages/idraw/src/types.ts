@@ -1,9 +1,12 @@
-import { IDrawData, CoreOptions } from '@idraw/types';
+import {
+  TypeData,
+  TypeCoreOptions,
+} from 'idraw_zyh_types';
 
 export type Options = {
   maxRecords?: number;
   disableKeyboard?: boolean;
-} & CoreOptions;
+} & TypeCoreOptions;
 
 export type PrivateOptions = {
   maxRecords: number;
@@ -11,6 +14,6 @@ export type PrivateOptions = {
 } & Options;
 
 export type Record = {
-  data: IDrawData;
+  data: TypeData;
   time: number;
-};
+}

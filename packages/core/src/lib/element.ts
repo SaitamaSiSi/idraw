@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
-  IDrawContext,
-  Point,
-  IDrawData,
-  HelperWrapperControllerDirection,
-  DataElement,
-  DataElemDesc
-} from '@idraw/types';
-import { createUUID } from '@idraw/util';
+  TypeContext,
+  TypePoint,
+  TypeData,
+  TypeHelperWrapperControllerDirection,
+  TypeElement,
+  TypeElemDesc,
+} from 'idraw_zyh_types';
+import { createUUID } from 'idraw_zyh_util';
 import { rotateElement } from './transform';
 import { calcRadian, calcElementCenter, parseRadianToAngle } from './calculate';
 import { limitAngle, limitNum } from './value';
@@ -16,13 +15,13 @@ import { LIMIT_QBLIQUE_ANGLE } from './../constant/element';
 const limitQbliqueAngle = LIMIT_QBLIQUE_ANGLE;
 
 export class Element {
-  private _ctx: IDrawContext;
+  private _ctx: TypeContext;
 
-  constructor(ctx: IDrawContext) {
+  constructor(ctx: TypeContext) {
     this._ctx = ctx;
   }
 
-  initData(data: IDrawData): IDrawData {
+  initData (data: TypeData): TypeData {
     data.elements.forEach((elem) => {
       if (!(elem.uuid && typeof elem.uuid === 'string')) {
         elem.uuid = createUUID();
@@ -31,7 +30,7 @@ export class Element {
     return data;
   }
 
-  isPointInElement(p: Point, data: IDrawData): [number, string | null] {
+  isPointInElement(p: TypePoint, data: TypeData): [number, string | null] {
     const ctx = this._ctx;
     let idx = -1;
     let uuid = null;
@@ -66,35 +65,29 @@ export class Element {
     return [idx, uuid];
   }
 
-  dragElement(
-    data: IDrawData,
-    uuid: string,
-    point: Point,
-    prevPoint: Point,
-    scale: number
-  ): void {
+  dragElement(data: TypeData, uuid: string, point: TypePoint, prevPoint: TypePoint, scale: number): void {
     const index = this.getElementIndex(data, uuid);
     if (!data.elements[index]) {
       return;
     }
     const moveX = point.x - prevPoint.x;
     const moveY = point.y - prevPoint.y;
-    data.elements[index].x += moveX / scale;
-    data.elements[index].y += moveY / scale;
+    data.elements[index].x += (moveX / scale);
+    data.elements[index].y += (moveY / scale);
     this.limitElementAttrs(data.elements[index]);
   }
 
   transformElement(
-    data: IDrawData,
+    data: TypeData,
     uuid: string,
-    point: Point,
-    prevPoint: Point,
+    point: TypePoint,
+    prevPoint: TypePoint,
     scale: number,
-    direction: HelperWrapperControllerDirection
+    direction: TypeHelperWrapperControllerDirection
   ): null | {
-    width: number;
-    height: number;
-    angle: number;
+    width: number,
+    height: number,
+    angle: number,
   } {
     const index = this.getElementIndex(data, uuid);
     if (!data.elements[index]) {
@@ -103,8 +96,8 @@ export class Element {
     if (data.elements[index]?.operation?.lock === true) {
       return null;
     }
-    const moveX = (point.x - prevPoint.x) / scale;
-    const moveY = (point.y - prevPoint.y) / scale;
+    let moveX = (point.x - prevPoint.x) / scale;
+    let moveY = (point.y - prevPoint.y) / scale;
     const elem = data.elements[index];
     // const { devicePixelRatio } = this._ctx.getSize();
 
@@ -112,19 +105,11 @@ export class Element {
     //   moveY = (point.y - prevPoint.y) / scale;
     // }
 
-    if (
-      [
-        'top-left',
-        'top',
-        'top-right',
-        'right',
-        'bottom-right',
-        'bottom',
-        'bottom-left',
-        'left'
-      ].includes(direction)
-    ) {
-      const p = calcuScaleElemPosition(elem, moveX, moveY, direction);
+    if ([
+      'top-left', 'top', 'top-right', 'right', 
+      'bottom-right', 'bottom', 'bottom-left', 'left'
+    ].includes(direction)) {
+      const p = calcuScaleElemPosition(elem, moveX, moveY, direction, scale);
       elem.x = p.x;
       elem.y = p.y;
       elem.w = p.w;
@@ -140,11 +125,11 @@ export class Element {
     return {
       width: limitNum(elem.w),
       height: limitNum(elem.h),
-      angle: limitAngle(elem.angle || 0)
+      angle: limitAngle(elem.angle || 0),
     };
   }
 
-  getElementIndex(data: IDrawData, uuid: string): number {
+  getElementIndex(data: TypeData, uuid: string): number {
     let idx = -1;
     for (let i = 0; i < data.elements.length; i++) {
       if (data.elements[i].uuid === uuid) {
@@ -155,41 +140,32 @@ export class Element {
     return idx;
   }
 
-  limitElementAttrs(elem: DataElement<keyof DataElemDesc>) {
+  limitElementAttrs(elem: TypeElement<keyof TypeElemDesc>) {
     elem.x = limitNum(elem.x);
     elem.y = limitNum(elem.y);
     elem.w = limitNum(elem.w);
     elem.h = limitNum(elem.h);
     elem.angle = limitAngle(elem.angle || 0);
   }
+  
 }
 
+
 function calcuScaleElemPosition(
-  elem: DataElement<keyof DataElemDesc>,
+  elem: TypeElement<keyof TypeElemDesc>,
   moveX: number,
   moveY: number,
-  direction: HelperWrapperControllerDirection
-  // scale: number
-): Point & { w: number; h: number } {
+  direction: TypeHelperWrapperControllerDirection,
+  scale: number,
+): TypePoint & { w: number, h: number } {
   const p = { x: elem.x, y: elem.y, w: elem.w, h: elem.h };
-  let angle = elem.angle || 0;
+  let angle = elem.angle;
   if (angle < 0) {
     angle = Math.max(0, 360 + angle);
   }
-  if (elem.operation?.limitRatio === true) {
-    if (
-      ['top-left', 'top-right', 'bottom-right', 'bottom-left'].includes(
-        direction
-      )
-    ) {
-      const maxDist = Math.max(Math.abs(moveX), Math.abs(moveY));
-      moveX = (moveX >= 0 ? 1 : -1) * maxDist;
-      moveY = (((moveY >= 0 ? 1 : -1) * maxDist) / elem.w) * elem.h;
-    }
-  }
-
   switch (direction) {
     case 'top-left': {
+
       // TODO
 
       // if (elem.angle === 0) {
@@ -208,32 +184,25 @@ function calcuScaleElemPosition(
       // } else {
       //   // TODO
       // }
-
-      if (elem.w - moveX > 0 && elem.h - moveY > 0) {
+      
+      if (elem.w - moveX > 0 && elem.h - moveY > 0)  {
         p.x += moveX;
         p.y += moveY;
         p.w -= moveX;
         p.h -= moveY;
       }
-
+      
+      
       break;
     }
     case 'top': {
-      if (elem.angle === 0 || Math.abs(elem.angle || 0) < limitQbliqueAngle) {
+      if (elem.angle === 0 || Math.abs(elem.angle) < limitQbliqueAngle) {
         if (p.h - moveY > 0) {
           p.y += moveY;
           p.h -= moveY;
-          if (elem.operation?.limitRatio === true) {
-            p.x += ((moveY / elem.h) * elem.w) / 2;
-            p.w -= (moveY / elem.h) * elem.w;
-          }
         }
-      } else if (
-        elem.angle !== undefined &&
-        (elem.angle > 0 || elem.angle < 0)
-      ) {
-        const angle =
-          elem.angle > 0 ? elem.angle : Math.max(0, elem.angle + 360);
+      } else if (elem.angle > 0 || elem.angle < 0) {
+        const angle = elem.angle > 0 ? elem.angle : Math.max(0, elem.angle + 360);
         let moveDist = calcMoveDist(moveX, moveY);
         let centerX = p.x + elem.w / 2;
         let centerY = p.y + elem.h / 2;
@@ -263,9 +232,6 @@ function calcuScaleElemPosition(
           centerY = centerY - centerMoveDist * Math.sin(radian);
         }
         if (p.h + moveDist > 0) {
-          if (elem.operation?.limitRatio === true) {
-            p.w = p.w + (moveDist / elem.h) * elem.w;
-          }
           p.h = p.h + moveDist;
           p.x = centerX - p.w / 2;
           p.y = centerY - p.h / 2;
@@ -274,10 +240,6 @@ function calcuScaleElemPosition(
         if (p.h - moveY > 0) {
           p.y += moveY;
           p.h -= moveY;
-          if (elem.operation?.limitRatio === true) {
-            p.x -= moveX / 2;
-            p.w += moveX;
-          }
         }
       }
       break;
@@ -323,7 +285,7 @@ function calcuScaleElemPosition(
       //       centerX = centerX + centerMoveDist * Math.cos(radian);
       //       centerY = centerY + centerMoveDist * Math.sin(radian);
       //     }
-
+        
       //   } else if (angle < 180) {
       //     const radianDist = Math.atan(Math.tan(Math.abs(moveX)/Math.abs(moveY)))
       //     const radian = parseRadian(angle);
@@ -367,20 +329,12 @@ function calcuScaleElemPosition(
       break;
     }
     case 'right': {
-      if (elem.angle === 0 || Math.abs(elem.angle || 0) < limitQbliqueAngle) {
+      if (elem.angle === 0 || Math.abs(elem.angle) < limitQbliqueAngle) {
         if (elem.w + moveX > 0) {
           p.w += moveX;
-          if (elem.operation?.limitRatio === true) {
-            p.y -= (moveX * elem.h) / elem.w / 2;
-            p.h += (moveX * elem.h) / elem.w;
-          }
         }
-      } else if (
-        elem.angle !== undefined &&
-        (elem.angle > 0 || elem.angle < 0)
-      ) {
-        const angle =
-          elem.angle > 0 ? elem.angle : Math.max(0, elem.angle + 360);
+      } else if (elem.angle > 0 || elem.angle < 0) {
+        const angle = elem.angle > 0 ? elem.angle : Math.max(0, elem.angle + 360);
         let moveDist = calcMoveDist(moveX, moveY);
         let centerX = p.x + elem.w / 2;
         let centerY = p.y + elem.h / 2;
@@ -411,9 +365,6 @@ function calcuScaleElemPosition(
           centerY = centerY - centerMoveDist * Math.cos(radian);
         }
         if (p.w + moveDist > 0) {
-          if (elem.operation?.limitRatio === true) {
-            p.h = p.h + (moveDist / elem.w) * elem.h;
-          }
           p.w = p.w + moveDist;
           p.x = centerX - p.w / 2;
           p.y = centerY - p.h / 2;
@@ -421,12 +372,9 @@ function calcuScaleElemPosition(
       } else {
         if (elem.w + moveX > 0) {
           p.w += moveX;
-          if (elem.operation?.limitRatio === true) {
-            p.h += (moveX * elem.h) / elem.w;
-            p.y -= (moveX * elem.h) / elem.w / 2;
-          }
         }
       }
+      
       break;
     }
     case 'bottom-right': {
@@ -453,20 +401,12 @@ function calcuScaleElemPosition(
       break;
     }
     case 'bottom': {
-      if (elem.angle === 0 || Math.abs(elem.angle || 0) < limitQbliqueAngle) {
+      if (elem.angle === 0 || Math.abs(elem.angle) < limitQbliqueAngle) {
         if (elem.h + moveY > 0) {
           p.h += moveY;
-          if (elem.operation?.limitRatio === true) {
-            p.x -= ((moveY / elem.h) * elem.w) / 2;
-            p.w += (moveY / elem.h) * elem.w;
-          }
         }
-      } else if (
-        elem.angle !== undefined &&
-        (elem.angle > 0 || elem.angle < 0)
-      ) {
-        const angle =
-          elem.angle > 0 ? elem.angle : Math.max(0, elem.angle + 360);
+      } else if (elem.angle > 0 || elem.angle < 0) {
+        const angle = elem.angle > 0 ? elem.angle : Math.max(0, elem.angle + 360);
         let moveDist = calcMoveDist(moveX, moveY);
         let centerX = p.x + elem.w / 2;
         let centerY = p.y + elem.h / 2;
@@ -496,9 +436,6 @@ function calcuScaleElemPosition(
           centerY = centerY + centerMoveDist * Math.sin(radian);
         }
         if (p.h + moveDist > 0) {
-          if (elem.operation?.limitRatio === true) {
-            p.w = p.w + (moveDist / elem.h) * elem.w;
-          }
           p.h = p.h + moveDist;
           p.x = centerX - p.w / 2;
           p.y = centerY - p.h / 2;
@@ -506,12 +443,9 @@ function calcuScaleElemPosition(
       } else {
         if (elem.h + moveY > 0) {
           p.h += moveY;
-          if (elem.operation?.limitRatio === true) {
-            p.x -= ((moveY / elem.h) * elem.w) / 2;
-            p.w += (moveY / elem.h) * elem.w;
-          }
         }
       }
+
       break;
     }
     case 'bottom-left': {
@@ -539,21 +473,13 @@ function calcuScaleElemPosition(
       break;
     }
     case 'left': {
-      if (elem.angle === 0 || Math.abs(elem.angle || 0) < limitQbliqueAngle) {
+      if (elem.angle === 0 || Math.abs(elem.angle) < limitQbliqueAngle) {
         if (elem.w - moveX > 0) {
           p.x += moveX;
           p.w -= moveX;
-          if (elem.operation?.limitRatio === true) {
-            p.h -= (moveX / elem.w) * elem.h;
-            p.y += ((moveX / elem.w) * elem.h) / 2;
-          }
         }
-      } else if (
-        elem.angle !== undefined &&
-        (elem.angle > 0 || elem.angle < 0)
-      ) {
-        const angle =
-          elem.angle > 0 ? elem.angle : Math.max(0, elem.angle + 360);
+      } else if (elem.angle > 0 || elem.angle < 0) {
+        const angle = elem.angle > 0 ? elem.angle : Math.max(0, elem.angle + 360);
         let moveDist = calcMoveDist(moveX, moveY);
         let centerX = p.x + elem.w / 2;
         let centerY = p.y + elem.h / 2;
@@ -583,9 +509,6 @@ function calcuScaleElemPosition(
           centerY = centerY + centerMoveDist * Math.cos(radian);
         }
         if (p.w + moveDist > 0) {
-          if (elem.operation?.limitRatio === true) {
-            p.h = p.h + (moveDist / elem.w) * elem.h;
-          }
           p.w = p.w + moveDist;
           p.x = centerX - p.w / 2;
           p.y = centerY - p.h / 2;
@@ -594,10 +517,6 @@ function calcuScaleElemPosition(
         if (elem.w - moveX > 0) {
           p.x += moveX;
           p.w -= moveX;
-          if (elem.operation?.limitRatio === true) {
-            p.h -= (moveX / elem.w) * elem.h;
-            p.y += ((moveX / elem.w) * elem.h) / 2;
-          }
         }
       }
       break;
@@ -610,7 +529,7 @@ function calcuScaleElemPosition(
 }
 
 function parseRadian(angle: number) {
-  return (angle * Math.PI) / 180;
+  return angle * Math.PI / 180;
 }
 
 function calcMoveDist(moveX: number, moveY: number) {

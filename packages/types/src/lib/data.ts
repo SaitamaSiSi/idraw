@@ -1,13 +1,17 @@
-import { DataElemDesc, DataElement, DataElementBase } from './element';
+import { TypeElemDesc, TypeElement, TypeElementBase } from './element';
 
-type IDrawDataBase = {
-  elements: DataElementBase<keyof DataElemDesc>[];
+type TypeDataBase = {
+  elements: TypeElementBase<keyof TypeElemDesc>[];
   bgColor?: string;
-};
+}
 
-type IDrawData = {
-  elements: DataElement<keyof DataElemDesc>[];
+type TypeData = {
+  elements: TypeElement<keyof TypeElemDesc>[];
   bgColor?: string;
-};
+}
 
-export { IDrawData, IDrawDataBase };
+
+export {
+  TypeData,
+  TypeDataBase,
+};

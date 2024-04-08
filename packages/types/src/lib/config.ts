@@ -1,26 +1,28 @@
-type IDrawConfig = {
+type TypeConfig = {
   elementWrapper?: {
-    color?: string;
-    controllerSize?: number;
-    lineWidth?: number;
-    lineDash?: number[];
-  };
+    color?: string,
+    controllerSize?: number,
+    lineWidth?: number,
+    lineDash?: number[],
+  },
   scrollWrapper?: {
-    use?: boolean;
-    color?: string;
-    width?: number;
-    showBackground?: boolean;
-  };
-};
+    use?: boolean,
+    color?: string,
+    lineWidth?: number,
+  }
+}
 
-type IDrawConfigStrict = IDrawConfig & {
+type TypeConfigStrict = TypeConfig & {
   elementWrapper: {
-    color: string;
-    lockColor: string;
-    controllerSize: number;
-    lineWidth: number;
-    lineDash: number[];
-  };
-};
+    color: string,
+    lockColor: string,
+    controllerSize: number,
+    lineWidth: number,
+    lineDash: number[],
+  },
+}
 
-export { IDrawConfig, IDrawConfigStrict };
+export {
+  TypeConfig,
+  TypeConfigStrict
+};

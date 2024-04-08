@@ -1,7 +1,7 @@
 import istype from '../../src/lib/istype';
 
 
-describe('@idraw/util: lib/istype', () => {
+describe('idraw_zyh_util: lib/istype', () => {
 
   const _num = 123;
   const _str = 'abc';

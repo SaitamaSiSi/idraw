@@ -1,11 +1,12 @@
 import {
-  InterfaceHelperPlugin,
-  HelperPluginEventDetail,
-  HelperPluginEventResult
-} from '@idraw/types';
-import { createUUID } from '@idraw/util';
+  InterfaceHelperPlugin, TypeHelperPluginEventDetail,
+  TypeHelperPluginEventResult,
+} from 'idraw_zyh_types';
+import { createUUID } from 'idraw_zyh_util';
+
 
 export class HelperPlugin implements Required<InterfaceHelperPlugin> {
+
   readonly name: string = 'helper-plugin';
 
   readonly uuid: string;
@@ -15,20 +16,31 @@ export class HelperPlugin implements Required<InterfaceHelperPlugin> {
     this.uuid = createUUID();
   }
 
-  onHover(detail: HelperPluginEventDetail): void | HelperPluginEventResult {
+  onHover(detail: TypeHelperPluginEventDetail): void | TypeHelperPluginEventResult {
     if (detail.controller === null) {
+      
     }
   }
 
-  onPoint(detail: HelperPluginEventDetail): void | HelperPluginEventResult {}
+  onPoint(detail: TypeHelperPluginEventDetail): void | TypeHelperPluginEventResult {
+    
+  }
 
-  onClick(detail: HelperPluginEventDetail): void | HelperPluginEventResult {}
+  onClick(detail: TypeHelperPluginEventDetail): void | TypeHelperPluginEventResult {
+    
+  }
 
-  onMoveStart(
-    detail: HelperPluginEventDetail
-  ): void | HelperPluginEventResult {}
+  onMoveStart(detail: TypeHelperPluginEventDetail): void | TypeHelperPluginEventResult {
+    
+  }
 
-  onMove(detail: HelperPluginEventDetail): void | HelperPluginEventResult {}
+  onMove(detail: TypeHelperPluginEventDetail): void | TypeHelperPluginEventResult {
+    
 
-  onMoveEnd(detail: HelperPluginEventDetail): void | HelperPluginEventResult {}
+  }
+
+  onMoveEnd(detail: TypeHelperPluginEventDetail): void | TypeHelperPluginEventResult {
+    
+  }
+  
 }

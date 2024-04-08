@@ -1,27 +1,27 @@
-import { IDrawConfig, IDrawConfigStrict } from '@idraw/types';
-import { deepClone } from '@idraw/util';
+import { TypeConfig, TypeConfigStrict } from 'idraw_zyh_types';
+import { deepClone } from 'idraw_zyh_util';
 
-const defaultConfig: IDrawConfigStrict = {
+const defaultConfig: TypeConfigStrict = {
   elementWrapper: {
-    color: '#0d85da',
+    color: '#2ab6f1',
     lockColor: '#aaaaaa',
     controllerSize: 6,
     lineWidth: 1,
-    lineDash: [4, 3]
+    lineDash: [4, 3],
   }
 };
 
-function mergeConfig(config?: IDrawConfig): IDrawConfigStrict {
+function mergeConfig(config?: TypeConfig): TypeConfigStrict {
   const result = deepClone(defaultConfig);
   if (config) {
     if (config.elementWrapper) {
-      result.elementWrapper = {
-        ...result.elementWrapper,
-        ...config.elementWrapper
-      };
+      result.elementWrapper = {...result.elementWrapper, ...config.elementWrapper};
     }
   }
   return result;
 }
 
-export { mergeConfig };
+export {
+  mergeConfig,
+};
+

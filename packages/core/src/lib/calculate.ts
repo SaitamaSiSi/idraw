@@ -1,30 +1,34 @@
-import { DataElement, DataElemDesc, Point } from '@idraw/types';
+import {
+  TypeElement,
+  TypeElemDesc,
+  TypePoint,
+} from 'idraw_zyh_types';
+
 
 export function parseRadianToAngle(radian: number): number {
-  return (radian / Math.PI) * 180;
+  return radian / Math.PI * 180;
 }
 
 export function parseAngleToRadian(angle: number): number {
-  return (angle / 180) * Math.PI;
+  return angle / 180 * Math.PI;
 }
 
-export function calcElementCenter(
-  elem: DataElement<keyof DataElemDesc>
-): Point {
+export function calcElementCenter(elem: TypeElement<keyof TypeElemDesc>): TypePoint {
   const p = {
     x: elem.x + elem.w / 2,
-    y: elem.y + elem.h / 2
+    y: elem.y + elem.h / 2,
   };
   return p;
 }
 
-export function calcRadian(center: Point, start: Point, end: Point): number {
+
+export function calcRadian(center: TypePoint, start: TypePoint, end: TypePoint): number {
   const startAngle = calcLineAngle(center, start);
   const endAngle = calcLineAngle(center, end);
-  if (endAngle !== null && startAngle !== null) {
-    if (startAngle > (Math.PI * 3) / 2 && endAngle < Math.PI / 2) {
+  if (endAngle !== null && startAngle !== null ) {
+    if (startAngle > Math.PI * 3 / 2  && endAngle < Math.PI / 2) {
       return endAngle + (Math.PI * 2 - startAngle);
-    } else if (endAngle > (Math.PI * 3) / 2 && startAngle < Math.PI / 2) {
+    } else if (endAngle > Math.PI * 3 / 2  && startAngle < Math.PI / 2) {
       return startAngle + (Math.PI * 2 - endAngle);
     } else {
       return endAngle - startAngle;
@@ -34,14 +38,14 @@ export function calcRadian(center: Point, start: Point, end: Point): number {
   }
 }
 
-function calcLineAngle(center: Point, p: Point): number | null {
+function calcLineAngle(center: TypePoint, p: TypePoint): number | null {
   const x = p.x - center.x;
   const y = center.y - p.y;
   if (x === 0) {
     if (y < 0) {
       return Math.PI / 2;
     } else if (y > 0) {
-      return Math.PI * (3 / 2);
+      return Math.PI * ( 3 / 2 );
     }
   } else if (y === 0) {
     if (x < 0) {

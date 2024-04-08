@@ -1,22 +1,29 @@
-import { IDrawContext, DataElemDescText, DataElement } from '@idraw/types';
-import { is, isColorStr } from '@idraw/util';
+import {
+  TypeContext, 
+  TypeElemDescText, 
+  TypeElement,
+} from 'idraw_zyh_types';
+import { is, isColorStr } from 'idraw_zyh_util';
+// import { is, isColorStr } from '../../../../util/src/index';
 import Loader from '../loader';
 import { clearContext, drawBox } from './base';
 import { rotateElement } from './../transform';
+ 
 
 export function drawText(
-  ctx: IDrawContext,
-  elem: DataElement<'text'>,
-  loader: Loader
+  ctx: TypeContext,
+  elem: TypeElement<'text'>,
+  loader: Loader,
 ) {
   clearContext(ctx);
   drawBox(ctx, elem, elem.desc.bgColor || 'transparent');
   rotateElement(ctx, elem, () => {
-    const desc: DataElemDescText = {
+
+    const desc: TypeElemDescText = {
       ...{
         fontSize: 12,
         fontFamily: 'sans-serif',
-        textAlign: 'center'
+        textAlign: 'center',
       },
       ...elem.desc
     };
@@ -27,23 +34,20 @@ export function drawText(
       fontSize: desc.fontSize,
       fontFamily: desc.fontFamily
     });
-    const descText = desc.text.replace(/\r\n/gi, '\n');
+    const descText = desc.text.replace(/\r\n/ig, '\n');
     const fontHeight = desc.lineHeight || desc.fontSize;
     const descTextList = descText.split('\n');
-    const lines: { text: string; width: number }[] = [];
+    const lines: {text: string, width: number}[] = [];
     const lineSpacing = desc.lineSpacing || 0;
-
+    
     let lineNum = 0;
     descTextList.forEach((tempText: string, idx: number) => {
       let lineText = '';
-
+      
       if (tempText.length > 0) {
         for (let i = 0; i < tempText.length; i++) {
-          if (
-            ctx.measureText(lineText + (tempText[i] || '')).width <
-            ctx.calcDeviceNum(elem.w)
-          ) {
-            lineText += tempText[i] || '';
+          if (ctx.measureText(lineText + (tempText[i] || '')).width < ctx.calcDeviceNum(elem.w)) {
+            lineText += (tempText[i] || '');
           } else if (ctx.measureText(lineText + (tempText[i] || '')).width == ctx.calcDeviceNum(elem.w)) {
             lineText += tempText[i] || '';
             lines.push({
@@ -55,9 +59,9 @@ export function drawText(
           } else {
             lines.push({
               text: lineText,
-              width: ctx.calcScreenNum(ctx.measureText(lineText).width)
+              width: ctx.calcScreenNum(ctx.measureText(lineText).width),
             });
-            lineText = tempText[i] || '';
+            lineText = (tempText[i] || '');
             lineNum++;
           }
           if ((lineNum + 1) * fontHeight > elem.h) {
@@ -67,9 +71,9 @@ export function drawText(
             if ((lineNum + 1) * fontHeight < elem.h) {
               lines.push({
                 text: lineText,
-                width: ctx.calcScreenNum(ctx.measureText(lineText).width)
+                width: ctx.calcScreenNum(ctx.measureText(lineText).width),
               });
-              if (idx < descTextList.length - 1) {
+              if(idx < descTextList.length - 1){
                 lineNum++;
               }
               break;
@@ -79,16 +83,20 @@ export function drawText(
       } else {
         lines.push({
           text: '',
-          width: 0
+          width: 0,
         });
       }
+      
     });
 
+    if (lines.length > 1 && lines[lines.length - 1].text === '') {
+      lines.pop();
+    }
     let startY = 0;
-    if (lines.length * fontHeight + (lines.length > 1 ? (lines.length - 1) * lineSpacing : 0) < elem.h) {
-      if (elem.desc.verticalAlign === 'top') {
+    if (lines.length * fontHeight + (lines.length > 1 ? (lines.length - 1) * lineSpacing : 0) <= elem.h) {
+      if (desc.verticalAlign === 'top') {
         startY = 0;
-      } else if (elem.desc.verticalAlign === 'bottom') {
+      } else if (desc.verticalAlign === 'bottom') {
         startY += elem.h - lines.length * fontHeight - (lines.length > 1 ? (lines.length - 1) * lineSpacing : 0);
       } else {
         // middle and default
@@ -121,10 +129,13 @@ export function drawText(
         ctx.fillText(line.text, _x, _y + fontHeight * i + i * lineSpacing);
       });
     }
+
   });
 }
 
-// export function createTextSVG(elem: DataElement<'text'>): string {
+
+
+// export function createTextSVG(elem: TypeElement<'text'>): string {
 //   const svg = `
 //   <svg xmlns="http://www.w3.org/2000/svg" width="${elem.w}" height = "${elem.h}">
 //     <foreignObject width="100%" height="100%">
@@ -136,3 +147,5 @@ export function drawText(
 //   `;
 //   return svg;
 // }
+ 
+

@@ -3,7 +3,7 @@ import {
 } from '../../src/lib/file';
 
 
-describe('@idraw/util: lib/file', () => {
+describe('idraw_zyh_util: lib/file', () => {
   
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;

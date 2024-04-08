@@ -1,8 +1,11 @@
-import { IDrawContext, HelperConfig } from '@idraw/types';
+import {
+  TypeContext,
+  TypeHelperConfig,
+} from 'idraw_zyh_types';
 import { rotateContext } from './../transform';
 import { clearContext } from './base';
 
-export function drawElementWrapper(ctx: IDrawContext, config: HelperConfig) {
+export function drawElementWrapper(ctx: TypeContext, config: TypeHelperConfig) {
   if (!config?.selectedElementWrapper) {
     return;
   }
@@ -16,63 +19,33 @@ export function drawElementWrapper(ctx: IDrawContext, config: HelperConfig) {
     ctx.setStrokeStyle(wrapper.color);
     ctx.moveTo(wrapper.controllers.topLeft.x, wrapper.controllers.topLeft.y);
     ctx.lineTo(wrapper.controllers.topRight.x, wrapper.controllers.topRight.y);
-    ctx.lineTo(
-      wrapper.controllers.bottomRight.x,
-      wrapper.controllers.bottomRight.y
-    );
-    ctx.lineTo(
-      wrapper.controllers.bottomLeft.x,
-      wrapper.controllers.bottomLeft.y
-    );
-    ctx.lineTo(
-      wrapper.controllers.topLeft.x,
-      wrapper.controllers.topLeft.y - wrapper.lineWidth / 2
-    );
+    ctx.lineTo(wrapper.controllers.bottomRight.x, wrapper.controllers.bottomRight.y);
+    ctx.lineTo(wrapper.controllers.bottomLeft.x, wrapper.controllers.bottomLeft.y);
+    ctx.lineTo(wrapper.controllers.topLeft.x, wrapper.controllers.topLeft.y - wrapper.lineWidth / 2);
     ctx.stroke();
     ctx.closePath();
-
+    
     if (wrapper.lock !== true) {
       if (wrapper.controllers.rotate.invisible !== true) {
         // draw wrapper's rotate line
         ctx.beginPath();
         ctx.moveTo(wrapper.controllers.top.x, wrapper.controllers.top.y);
-        ctx.lineTo(
-          wrapper.controllers.rotate.x,
-          wrapper.controllers.rotate.y + wrapper.controllerSize
-        );
+        ctx.lineTo(wrapper.controllers.rotate.x, wrapper.controllers.rotate.y + wrapper.controllerSize);
         ctx.stroke();
         ctx.closePath();
 
         // draw wrapper's rotate
         ctx.beginPath();
         ctx.setLineDash([]);
-        ctx.setLineWidth(wrapper.controllerSize / 1.2);
-        ctx.arc(
-          wrapper.controllers.rotate.x,
-          wrapper.controllers.rotate.y,
-          wrapper.controllerSize * 0.8,
-          0,
-          Math.PI * 2
-        );
-        ctx.stroke();
-        ctx.closePath();
-
-        ctx.setStrokeStyle('#FFFFFF');
-        ctx.beginPath();
-        ctx.setLineDash([]);
-        ctx.setLineWidth(wrapper.controllerSize / 2.1);
-        ctx.arc(
-          wrapper.controllers.rotate.x,
-          wrapper.controllers.rotate.y,
-          wrapper.controllerSize * 0.8,
-          0,
-          Math.PI * 2
-        );
+        ctx.setLineWidth(wrapper.controllerSize / 2);
+        ctx.arc(wrapper.controllers.rotate.x, wrapper.controllers.rotate.y, wrapper.controllerSize * 0.8, Math.PI / 6, Math.PI * 2);
         ctx.stroke();
         ctx.closePath();
       }
+      
 
       // draw wrapper's controllers
+      ctx.setFillStyle(wrapper.color);
       [
         wrapper.controllers.topLeft,
         wrapper.controllers.top,
@@ -81,30 +54,11 @@ export function drawElementWrapper(ctx: IDrawContext, config: HelperConfig) {
         wrapper.controllers.bottomRight,
         wrapper.controllers.bottom,
         wrapper.controllers.bottomLeft,
-        wrapper.controllers.left
+        wrapper.controllers.left,
       ].forEach((controller) => {
         if (controller.invisible !== true) {
-          ctx.setFillStyle(wrapper.color);
           ctx.beginPath();
-          ctx.arc(
-            controller.x,
-            controller.y,
-            wrapper.controllerSize,
-            0,
-            Math.PI * 2
-          );
-          ctx.fill();
-          ctx.closePath();
-
-          ctx.setFillStyle('#FFFFFF');
-          ctx.beginPath();
-          ctx.arc(
-            controller.x,
-            controller.y,
-            wrapper.controllerSize - 1,
-            0,
-            Math.PI * 2
-          );
+          ctx.arc(controller.x, controller.y, wrapper.controllerSize, 0, Math.PI * 2);
           ctx.fill();
           ctx.closePath();
         }
@@ -114,36 +68,19 @@ export function drawElementWrapper(ctx: IDrawContext, config: HelperConfig) {
       clearContext(ctx);
       ctx.setStrokeStyle(wrapper.color);
       [
-        wrapper.controllers.topLeft,
-        wrapper.controllers.top,
-        wrapper.controllers.topRight,
-        wrapper.controllers.right,
-        wrapper.controllers.bottomRight,
-        wrapper.controllers.bottom,
-        wrapper.controllers.bottomLeft,
-        wrapper.controllers.left
+        wrapper.controllers.topLeft, wrapper.controllers.top, wrapper.controllers.topRight, wrapper.controllers.right,
+        wrapper.controllers.bottomRight, wrapper.controllers.bottom, wrapper.controllers.bottomLeft, wrapper.controllers.left,
       ].forEach((controller) => {
+
         ctx.beginPath();
-        ctx.moveTo(
-          controller.x - wrapper.controllerSize / 2,
-          controller.y - wrapper.controllerSize / 2
-        );
-        ctx.lineTo(
-          controller.x + wrapper.controllerSize / 2,
-          controller.y + wrapper.controllerSize / 2
-        );
+        ctx.moveTo(controller.x - wrapper.controllerSize / 2, controller.y - wrapper.controllerSize / 2);
+        ctx.lineTo(controller.x + wrapper.controllerSize / 2, controller.y + wrapper.controllerSize / 2);
         ctx.stroke();
         ctx.closePath();
 
         ctx.beginPath();
-        ctx.moveTo(
-          controller.x + wrapper.controllerSize / 2,
-          controller.y - wrapper.controllerSize / 2
-        );
-        ctx.lineTo(
-          controller.x - wrapper.controllerSize / 2,
-          controller.y + wrapper.controllerSize / 2
-        );
+        ctx.moveTo(controller.x + wrapper.controllerSize / 2, controller.y - wrapper.controllerSize / 2);
+        ctx.lineTo(controller.x - wrapper.controllerSize / 2, controller.y + wrapper.controllerSize / 2);
         ctx.stroke();
         ctx.closePath();
       });
@@ -151,7 +88,7 @@ export function drawElementWrapper(ctx: IDrawContext, config: HelperConfig) {
   });
 }
 
-export function drawAreaWrapper(ctx: IDrawContext, config: HelperConfig) {
+export function drawAreaWrapper(ctx: TypeContext, config: TypeHelperConfig) {
   if (!config?.selectedAreaWrapper) {
     return;
   }
@@ -175,12 +112,10 @@ export function drawAreaWrapper(ctx: IDrawContext, config: HelperConfig) {
     ctx.stroke();
     ctx.closePath();
   }
+  
 }
 
-export function drawElementListWrappers(
-  ctx: IDrawContext,
-  config: HelperConfig
-) {
+export function drawElementListWrappers(ctx: TypeContext, config: TypeHelperConfig) {
   if (!Array.isArray(config?.selectedElementListWrappers)) {
     return;
   }
@@ -189,6 +124,7 @@ export function drawElementListWrappers(
   wrapperList?.forEach((wrapper) => {
     clearContext(ctx);
     rotateContext(ctx, wrapper.translate, wrapper.radian || 0, () => {
+      
       clearContext(ctx);
       ctx.setGlobalAlpha(0.05);
       ctx.setFillStyle(wrapper.color);
@@ -196,7 +132,7 @@ export function drawElementListWrappers(
         wrapper.controllers.topLeft.x,
         wrapper.controllers.topLeft.y,
         wrapper.controllers.bottomRight.x - wrapper.controllers.topLeft.x,
-        wrapper.controllers.bottomRight.y - wrapper.controllers.topLeft.y
+        wrapper.controllers.bottomRight.y - wrapper.controllers.topLeft.y,
       );
 
       clearContext(ctx);
@@ -205,22 +141,10 @@ export function drawElementListWrappers(
       ctx.setLineWidth(wrapper.lineWidth);
       ctx.setStrokeStyle(wrapper.color);
       ctx.moveTo(wrapper.controllers.topLeft.x, wrapper.controllers.topLeft.y);
-      ctx.lineTo(
-        wrapper.controllers.topRight.x,
-        wrapper.controllers.topRight.y
-      );
-      ctx.lineTo(
-        wrapper.controllers.bottomRight.x,
-        wrapper.controllers.bottomRight.y
-      );
-      ctx.lineTo(
-        wrapper.controllers.bottomLeft.x,
-        wrapper.controllers.bottomLeft.y
-      );
-      ctx.lineTo(
-        wrapper.controllers.topLeft.x,
-        wrapper.controllers.topLeft.y - wrapper.lineWidth / 2
-      );
+      ctx.lineTo(wrapper.controllers.topRight.x, wrapper.controllers.topRight.y);
+      ctx.lineTo(wrapper.controllers.bottomRight.x, wrapper.controllers.bottomRight.y);
+      ctx.lineTo(wrapper.controllers.bottomLeft.x, wrapper.controllers.bottomLeft.y);
+      ctx.lineTo(wrapper.controllers.topLeft.x, wrapper.controllers.topLeft.y - wrapper.lineWidth / 2);
       ctx.stroke();
       ctx.closePath();
 
@@ -230,40 +154,24 @@ export function drawElementListWrappers(
         // ctx.setFillStyle(wrapper.color);
         ctx.setStrokeStyle(wrapper.color);
         [
-          wrapper.controllers.topLeft,
-          wrapper.controllers.top,
-          wrapper.controllers.topRight,
-          wrapper.controllers.right,
-          wrapper.controllers.bottomRight,
-          wrapper.controllers.bottom,
-          wrapper.controllers.bottomLeft,
-          wrapper.controllers.left
+          wrapper.controllers.topLeft, wrapper.controllers.top, wrapper.controllers.topRight, wrapper.controllers.right,
+          wrapper.controllers.bottomRight, wrapper.controllers.bottom, wrapper.controllers.bottomLeft, wrapper.controllers.left,
         ].forEach((controller) => {
           ctx.beginPath();
-          ctx.moveTo(
-            controller.x - wrapper.controllerSize / 2,
-            controller.y - wrapper.controllerSize / 2
-          );
-          ctx.lineTo(
-            controller.x + wrapper.controllerSize / 2,
-            controller.y + wrapper.controllerSize / 2
-          );
+          ctx.moveTo(controller.x - wrapper.controllerSize / 2, controller.y - wrapper.controllerSize / 2);
+          ctx.lineTo(controller.x + wrapper.controllerSize / 2, controller.y + wrapper.controllerSize / 2);
           ctx.stroke();
           ctx.closePath();
 
           ctx.beginPath();
-          ctx.moveTo(
-            controller.x + wrapper.controllerSize / 2,
-            controller.y - wrapper.controllerSize / 2
-          );
-          ctx.lineTo(
-            controller.x - wrapper.controllerSize / 2,
-            controller.y + wrapper.controllerSize / 2
-          );
+          ctx.moveTo(controller.x + wrapper.controllerSize / 2, controller.y - wrapper.controllerSize / 2);
+          ctx.lineTo(controller.x - wrapper.controllerSize / 2, controller.y + wrapper.controllerSize / 2);
           ctx.stroke();
           ctx.closePath();
         });
       }
+
     });
   });
 }
+

@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`@idraw/board scroll 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "height": 1600,
       "width": 2400,
       "x": 0,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -19,14 +19,14 @@ exports[`@idraw/board scroll 1`] = `
     ],
     "type": "clearRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 1600,
       "width": 2400,
       "x": 0,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -36,14 +36,14 @@ exports[`@idraw/board scroll 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 480,
       "width": 800,
       "x": 40,
       "y": 40,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -53,14 +53,14 @@ exports[`@idraw/board scroll 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 480,
       "width": 800,
       "x": 320,
       "y": 320,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -70,14 +70,14 @@ exports[`@idraw/board scroll 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 480,
       "width": 800,
       "x": 640,
       "y": 640,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -87,14 +87,14 @@ exports[`@idraw/board scroll 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 400,
       "width": 800,
       "x": 1560,
       "y": 1160,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -108,15 +108,15 @@ exports[`@idraw/board scroll 1`] = `
 `;
 
 exports[`@idraw/board scroll 2`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "height": 1600,
       "width": 2400,
       "x": 0,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -126,14 +126,14 @@ exports[`@idraw/board scroll 2`] = `
     ],
     "type": "clearRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 1600,
       "width": 2400,
       "x": 0,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -143,8 +143,8 @@ exports[`@idraw/board scroll 2`] = `
     ],
     "type": "clearRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "dHeight": 1600,
       "dWidth": 2400,
       "dx": -2400,
@@ -158,7 +158,7 @@ exports[`@idraw/board scroll 2`] = `
       "sx": 0,
       "sy": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -168,8 +168,8 @@ exports[`@idraw/board scroll 2`] = `
     ],
     "type": "drawImage",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "dHeight": 1600,
       "dWidth": 2400,
       "dx": -2400,
@@ -183,7 +183,7 @@ exports[`@idraw/board scroll 2`] = `
       "sx": 0,
       "sy": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -193,14 +193,14 @@ exports[`@idraw/board scroll 2`] = `
     ],
     "type": "drawImage",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 80,
       "width": 2400,
       "x": 0,
       "y": 1520,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -210,13 +210,13 @@ exports[`@idraw/board scroll 2`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -226,12 +226,12 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
-            "x": 2220,
-            "y": 1541,
+        Object {
+          "props": Object {
+            "x": 2240,
+            "y": 1520,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -241,15 +241,15 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "moveTo",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "cpx1": 2400,
             "cpx2": 2400,
-            "cpy1": 1541,
-            "cpy2": 1581,
-            "radius": 20,
+            "cpy1": 1520,
+            "cpy2": 1600,
+            "radius": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -259,15 +259,15 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "arcTo",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "cpx1": 2400,
             "cpx2": 2200,
-            "cpy1": 1581,
-            "cpy2": 1581,
-            "radius": 20,
+            "cpy1": 1600,
+            "cpy2": 1600,
+            "radius": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -277,15 +277,15 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "arcTo",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "cpx1": 2200,
             "cpx2": 2200,
-            "cpy1": 1581,
-            "cpy2": 1541,
-            "radius": 20,
+            "cpy1": 1600,
+            "cpy2": 1520,
+            "radius": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -295,15 +295,15 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "arcTo",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "cpx1": 2200,
             "cpx2": 2400,
-            "cpy1": 1541,
-            "cpy2": 1541,
-            "radius": 20,
+            "cpy1": 1520,
+            "cpy2": 1520,
+            "radius": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -313,9 +313,9 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "arcTo",
         },
-        {
-          "props": {},
-          "transform": [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -327,7 +327,7 @@ exports[`@idraw/board scroll 2`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -337,140 +337,14 @@ exports[`@idraw/board scroll 2`] = `
     ],
     "type": "fill",
   },
-  {
-    "props": {
-      "path": [
-        {
-          "props": {},
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "beginPath",
-        },
-        {
-          "props": {
-            "x": 2220,
-            "y": 1541,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "moveTo",
-        },
-        {
-          "props": {
-            "cpx1": 2400,
-            "cpx2": 2400,
-            "cpy1": 1541,
-            "cpy2": 1581,
-            "radius": 20,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "arcTo",
-        },
-        {
-          "props": {
-            "cpx1": 2400,
-            "cpx2": 2200,
-            "cpy1": 1581,
-            "cpy2": 1581,
-            "radius": 20,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "arcTo",
-        },
-        {
-          "props": {
-            "cpx1": 2200,
-            "cpx2": 2200,
-            "cpy1": 1581,
-            "cpy2": 1541,
-            "radius": 20,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "arcTo",
-        },
-        {
-          "props": {
-            "cpx1": 2200,
-            "cpx2": 2400,
-            "cpy1": 1541,
-            "cpy2": 1541,
-            "radius": 20,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "arcTo",
-        },
-        {
-          "props": {},
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "closePath",
-        },
-      ],
-    },
-    "transform": [
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-    ],
-    "type": "stroke",
-  },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 1600,
       "width": 80,
       "x": 2320,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -480,13 +354,13 @@ exports[`@idraw/board scroll 2`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -496,12 +370,12 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
-            "x": 2361,
+        Object {
+          "props": Object {
+            "x": 2360,
             "y": 1400,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -511,15 +385,15 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "moveTo",
         },
-        {
-          "props": {
-            "cpx1": 2381,
-            "cpx2": 2381,
+        Object {
+          "props": Object {
+            "cpx1": 2400,
+            "cpx2": 2400,
             "cpy1": 1400,
             "cpy2": 1600,
-            "radius": 20,
+            "radius": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -529,15 +403,15 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "arcTo",
         },
-        {
-          "props": {
-            "cpx1": 2381,
-            "cpx2": 2341,
+        Object {
+          "props": Object {
+            "cpx1": 2400,
+            "cpx2": 2320,
             "cpy1": 1600,
             "cpy2": 1600,
-            "radius": 20,
+            "radius": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -547,15 +421,15 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "arcTo",
         },
-        {
-          "props": {
-            "cpx1": 2341,
-            "cpx2": 2341,
+        Object {
+          "props": Object {
+            "cpx1": 2320,
+            "cpx2": 2320,
             "cpy1": 1600,
             "cpy2": 1400,
-            "radius": 20,
+            "radius": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -565,15 +439,15 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "arcTo",
         },
-        {
-          "props": {
-            "cpx1": 2341,
-            "cpx2": 2381,
+        Object {
+          "props": Object {
+            "cpx1": 2320,
+            "cpx2": 2400,
             "cpy1": 1400,
             "cpy2": 1400,
-            "radius": 20,
+            "radius": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -583,9 +457,9 @@ exports[`@idraw/board scroll 2`] = `
           ],
           "type": "arcTo",
         },
-        {
-          "props": {},
-          "transform": [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -597,7 +471,7 @@ exports[`@idraw/board scroll 2`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -606,132 +480,6 @@ exports[`@idraw/board scroll 2`] = `
       0,
     ],
     "type": "fill",
-  },
-  {
-    "props": {
-      "path": [
-        {
-          "props": {},
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "beginPath",
-        },
-        {
-          "props": {
-            "x": 2361,
-            "y": 1400,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "moveTo",
-        },
-        {
-          "props": {
-            "cpx1": 2381,
-            "cpx2": 2381,
-            "cpy1": 1400,
-            "cpy2": 1600,
-            "radius": 20,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "arcTo",
-        },
-        {
-          "props": {
-            "cpx1": 2381,
-            "cpx2": 2341,
-            "cpy1": 1600,
-            "cpy2": 1600,
-            "radius": 20,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "arcTo",
-        },
-        {
-          "props": {
-            "cpx1": 2341,
-            "cpx2": 2341,
-            "cpy1": 1600,
-            "cpy2": 1400,
-            "radius": 20,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "arcTo",
-        },
-        {
-          "props": {
-            "cpx1": 2341,
-            "cpx2": 2381,
-            "cpy1": 1400,
-            "cpy2": 1400,
-            "radius": 20,
-          },
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "arcTo",
-        },
-        {
-          "props": {},
-          "transform": [
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-          ],
-          "type": "closePath",
-        },
-      ],
-    },
-    "transform": [
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-    ],
-    "type": "stroke",
   },
 ]
 `;

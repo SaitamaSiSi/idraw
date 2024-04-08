@@ -3,7 +3,7 @@ import {
 } from '../../src/lib/time';
 
 
-describe('@idraw/util: lib/delay', () => {
+describe('idraw_zyh_util: lib/delay', () => {
 
   test('delay', async () => { 
     const start = Date.now();

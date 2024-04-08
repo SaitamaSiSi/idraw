@@ -1,23 +1,21 @@
-import { IDrawData, DataElement } from '@idraw/types';
-import { loadImage, loadSVG, loadHTML, deepClone } from '@idraw/util';
-import {
-  LoaderEvent,
-  TypeLoadData,
-  TypeLoaderEventArgMap
-} from './loader-event';
+import { TypeData, TypeElement } from 'idraw_zyh_types';
+import { loadImage, loadSVG, loadHTML, deepClone } from 'idraw_zyh_util';
+// import { loadImage, loadSVG, loadHTML, deepClone } from '../../../util/src/index';
+import { LoaderEvent, TypeLoadData, TypeLoaderEventArgMap } from './loader-event';
 import { filterScript } from './../util/filter';
 
 type Options = {
-  maxParallelNum: number;
-};
+  maxParallelNum: number
+}
 
 enum LoaderStatus {
   FREE = 'free',
   LOADING = 'loading',
-  COMPLETE = 'complete'
+  COMPLETE = 'complete',
 }
 
 export default class Loader {
+
   private _opts: Options;
   private _event: LoaderEvent;
   // private _patternMap: {[uuid: string]: CanvasPattern} = {}
@@ -27,8 +25,8 @@ export default class Loader {
   private _status: LoaderStatus = LoaderStatus.FREE;
 
   private _waitingLoadQueue: Array<{
-    uuidQueue: string[];
-    loadData: TypeLoadData;
+    uuidQueue: string[],
+    loadData: TypeLoadData,
   }> = [];
 
   constructor(opts: Options) {
@@ -37,37 +35,31 @@ export default class Loader {
     this._waitingLoadQueue = [];
   }
 
-  load(data: IDrawData, changeResourceUUIDs: string[]): void {
-    const [uuidQueue, loadData] = this._resetLoadData(
-      data,
-      changeResourceUUIDs
-    );
-    if (
-      this._status === LoaderStatus.FREE ||
-      this._status === LoaderStatus.COMPLETE
-    ) {
+  load(data: TypeData, changeResourceUUIDs: string[]): void {
+    const [uuidQueue, loadData] = this._resetLoadData(data, changeResourceUUIDs);
+    if (this._status === LoaderStatus.FREE || this._status === LoaderStatus.COMPLETE) {
       this._currentUUIDQueue = uuidQueue;
       this._currentLoadData = loadData;
       this._loadTask();
     } else if (this._status === LoaderStatus.LOADING && uuidQueue.length > 0) {
       this._waitingLoadQueue.push({
         uuidQueue,
-        loadData
+        loadData,
       });
     }
   }
 
   on<T extends keyof TypeLoaderEventArgMap>(
     name: T,
-    callback: (arg: TypeLoaderEventArgMap[T]) => void
-  ) {
+    callback: (arg: TypeLoaderEventArgMap[T]
+  ) => void) {
     this._event.on(name, callback);
   }
 
   off<T extends keyof TypeLoaderEventArgMap>(
     name: T,
-    callback: (arg: TypeLoaderEventArgMap[T]) => void
-  ) {
+    callback: (arg: TypeLoaderEventArgMap[T]
+  ) => void) {
     this._event.off(name, callback);
   }
 
@@ -83,7 +75,7 @@ export default class Loader {
   }
 
   // getPattern(
-  //   elem: DataElement<keyof DataElemDesc>,
+  //   elem: TypeElement<keyof TypeElemDesc>,
   //   opts?: {
   //     forceUpdate: boolean
   //   }
@@ -100,7 +92,7 @@ export default class Loader {
   //     const tempCtx = board.createContext(tempCanvas);
   //     const image = this.getContent(elem.uuid);
   //     tempCtx.drawImage(image, elem.x, elem.y, elem.w, elem.h);
-
+    
   //     const canvas = board.createCanvas();
   //     const ctx = board.createContext(canvas);
   //     const pattern = ctx.createPattern(tempCanvas, 'no-repeat');
@@ -110,10 +102,7 @@ export default class Loader {
   //   return null;
   // }
 
-  private _resetLoadData(
-    data: IDrawData,
-    changeResourceUUIDs: string[]
-  ): [string[], TypeLoadData] {
+  private _resetLoadData(data: TypeData, changeResourceUUIDs: string[]): [string[], TypeLoadData] {
     const loadData: TypeLoadData = {};
     const uuidQueue: string[] = [];
 
@@ -121,10 +110,10 @@ export default class Loader {
     // const currentUUIDs: string[] = []
 
     // add new load-data
-    for (let i = data.elements.length - 1; i >= 0; i--) {
-      const elem = data.elements[i] as DataElement<'image' | 'svg' | 'html'>;
+    for (let i = data.elements.length - 1; i >= 0; i --) {
+      const elem = data.elements[i] as TypeElement<'image' | 'svg' | 'html'>;
       // currentUUIDs.push(elem.uuid);
-      if (['image', 'svg', 'html'].includes(elem.type)) {
+      if (['image', 'svg', 'html', ].includes(elem.type)) {
         if (!storageLoadData[elem.uuid]) {
           loadData[elem.uuid] = this._createEmptyLoadItem(elem);
           uuidQueue.push(elem.uuid);
@@ -134,24 +123,24 @@ export default class Loader {
             uuidQueue.push(elem.uuid);
           }
           // if (elem.type === 'image') {
-          //   const _ele = elem as DataElement<'image'>;
+          //   const _ele = elem as TypeElement<'image'>;
           //   if (_ele.desc.src !== storageLoadData[elem.uuid].source) {
           //     loadData[elem.uuid] = this._createEmptyLoadItem(elem);
           //     uuidQueue.push(elem.uuid);
           //   }
           // } else if (elem.type === 'svg') {
-          //   const _ele = elem as DataElement<'svg'>;
+          //   const _ele = elem as TypeElement<'svg'>;
           //   if (_ele.desc.svg !== storageLoadData[elem.uuid].source) {
           //     loadData[elem.uuid] = this._createEmptyLoadItem(elem);
           //     uuidQueue.push(elem.uuid);
           //   }
           // } else if (elem.type === 'html') {
-          //   const _ele = elem as DataElement<'html'>;
+          //   const _ele = elem as TypeElement<'html'>;
           //   if (filterScript(_ele.desc.html) !== storageLoadData[elem.uuid].source) {
           //     loadData[elem.uuid] = this._createEmptyLoadItem(elem);
           //     uuidQueue.push(elem.uuid);
           //   }
-          // }
+          // } 
         }
       }
     }
@@ -166,23 +155,20 @@ export default class Loader {
     return [uuidQueue, loadData];
   }
 
-  private _createEmptyLoadItem(
-    elem: DataElement<'image' | 'svg' | 'html'>
-  ): TypeLoadData[string] {
+  private _createEmptyLoadItem(elem: TypeElement<'image' | 'svg' | 'html'>): TypeLoadData[string] {
     let source = '';
 
-    const type: TypeLoadData[string]['type'] =
-      elem.type as TypeLoadData[string]['type'];
+    const type: TypeLoadData[string]['type'] = elem.type as TypeLoadData[string]['type'];
     let elemW: number = elem.w;
     let elemH: number = elem.h;
     if (elem.type === 'image') {
-      const _elem = elem as DataElement<'image'>;
+      const _elem = elem as TypeElement<'image'>;
       source = _elem.desc.src || '';
     } else if (elem.type === 'svg') {
-      const _elem = elem as DataElement<'svg'>;
+      const _elem = elem as TypeElement<'svg'>;
       source = _elem.desc.svg || '';
     } else if (elem.type === 'html') {
-      const _elem = elem as DataElement<'html'>;
+      const _elem = elem as TypeElement<'html'>;
       source = filterScript(_elem.desc.html || '');
       elemW = _elem.desc.width || elem.w;
       elemH = _elem.desc.height || elem.h;
@@ -195,7 +181,7 @@ export default class Loader {
       source,
       elemW,
       elemH,
-      element: deepClone(elem)
+      element: deepClone(elem),
     };
   }
 
@@ -222,13 +208,14 @@ export default class Loader {
 
     const { maxParallelNum } = this._opts;
     const uuids = this._currentUUIDQueue.splice(0, maxParallelNum);
-    const uuidMap: { [uuid: string]: number } = {};
+    const uuidMap: {[uuid: string]: number} = {};
 
     uuids.forEach((url, i) => {
       uuidMap[url] = i;
     });
     const loadUUIDList: string[] = [];
     const _loadAction = () => {
+  
       if (loadUUIDList.length >= maxParallelNum) {
         return false;
       }
@@ -243,83 +230,75 @@ export default class Loader {
         }
         loadUUIDList.push(uuid);
 
-        this._loadElementSource(this._currentLoadData[uuid])
-          .then((image) => {
-            loadUUIDList.splice(loadUUIDList.indexOf(uuid), 1);
-            const status = _loadAction();
+        this._loadElementSource(this._currentLoadData[uuid]).then((image) => {
+          loadUUIDList.splice(loadUUIDList.indexOf(uuid), 1);
+          const status = _loadAction();
 
+          this._storageLoadData[uuid] = {
+            uuid,
+            type: this._currentLoadData[uuid].type,
+            status: 'loaded',
+            content: image,
+            source: this._currentLoadData[uuid].source,
+            elemW: this._currentLoadData[uuid].elemW,
+            elemH: this._currentLoadData[uuid].elemH,
+            element: this._currentLoadData[uuid].element,
+          };
+
+          if (loadUUIDList.length === 0 && uuids.length === 0 && status === true) {
+            this._status = LoaderStatus.FREE;
+            this._loadTask();
+          }
+          this._event.trigger('load', {
+            uuid: this._storageLoadData[uuid]?.uuid,
+            type: this._storageLoadData[uuid].type,
+            status: this._storageLoadData[uuid].status,
+            content: this._storageLoadData[uuid].content,
+            source: this._storageLoadData[uuid].source,
+            elemW: this._storageLoadData[uuid].elemW,
+            elemH: this._storageLoadData[uuid].elemH,
+            element: this._storageLoadData[uuid]?.element,
+          });
+        }).catch((err) => {
+          console.warn(err);
+
+          loadUUIDList.splice(loadUUIDList.indexOf(uuid), 1);
+          const status = _loadAction();
+
+          if (this._currentLoadData[uuid]) {
             this._storageLoadData[uuid] = {
               uuid,
-              type: this._currentLoadData[uuid].type,
-              status: 'loaded',
-              content: image,
-              source: this._currentLoadData[uuid].source,
-              elemW: this._currentLoadData[uuid].elemW,
-              elemH: this._currentLoadData[uuid].elemH,
-              element: this._currentLoadData[uuid].element
+              type: this._currentLoadData[uuid]?.type,
+              status: 'fail',
+              content: null,
+              error: err,
+              source: this._currentLoadData[uuid]?.source,
+              elemW: this._currentLoadData[uuid]?.elemW,
+              elemH: this._currentLoadData[uuid]?.elemH,
+              element: this._currentLoadData[uuid]?.element,
             };
+          }
 
-            if (
-              loadUUIDList.length === 0 &&
-              uuids.length === 0 &&
-              status === true
-            ) {
-              this._status = LoaderStatus.FREE;
-              this._loadTask();
-            }
-            this._event.trigger('load', {
-              uuid: this._storageLoadData[uuid]?.uuid,
-              type: this._storageLoadData[uuid].type,
-              status: this._storageLoadData[uuid].status,
-              content: this._storageLoadData[uuid].content,
-              source: this._storageLoadData[uuid].source,
-              elemW: this._storageLoadData[uuid].elemW,
-              elemH: this._storageLoadData[uuid].elemH,
-              element: this._storageLoadData[uuid]?.element
+          if (loadUUIDList.length === 0 && uuids.length === 0 && status === true) {
+            this._status = LoaderStatus.FREE;
+            this._loadTask();
+          } 
+          
+          if (this._currentLoadData[uuid]) {
+            this._event.trigger('error', {
+              uuid: uuid,
+              type: this._storageLoadData[uuid]?.type,
+              status: this._storageLoadData[uuid]?.status,
+              content: this._storageLoadData[uuid]?.content,
+              source: this._storageLoadData[uuid]?.source,
+              elemW: this._storageLoadData[uuid]?.elemW,
+              elemH: this._storageLoadData[uuid]?.elemH,
+              element: this._storageLoadData[uuid]?.element,
             });
-          })
-          .catch((err) => {
-            console.warn(err);
-
-            loadUUIDList.splice(loadUUIDList.indexOf(uuid), 1);
-            const status = _loadAction();
-
-            if (this._currentLoadData[uuid]) {
-              this._storageLoadData[uuid] = {
-                uuid,
-                type: this._currentLoadData[uuid]?.type,
-                status: 'fail',
-                content: null,
-                error: err,
-                source: this._currentLoadData[uuid]?.source,
-                elemW: this._currentLoadData[uuid]?.elemW,
-                elemH: this._currentLoadData[uuid]?.elemH,
-                element: this._currentLoadData[uuid]?.element
-              };
-            }
-
-            if (
-              loadUUIDList.length === 0 &&
-              uuids.length === 0 &&
-              status === true
-            ) {
-              this._status = LoaderStatus.FREE;
-              this._loadTask();
-            }
-
-            if (this._currentLoadData[uuid]) {
-              this._event.trigger('error', {
-                uuid: uuid,
-                type: this._storageLoadData[uuid]?.type,
-                status: this._storageLoadData[uuid]?.status,
-                content: this._storageLoadData[uuid]?.content,
-                source: this._storageLoadData[uuid]?.source,
-                elemW: this._storageLoadData[uuid]?.elemW,
-                elemH: this._storageLoadData[uuid]?.elemH,
-                element: this._storageLoadData[uuid]?.element
-              });
-            }
-          });
+          }
+          
+        });
+ 
       }
       return false;
     };
@@ -333,15 +312,20 @@ export default class Loader {
       const image = await loadImage(params.source);
       return image;
     } else if (params && params.type === 'svg') {
-      const image = await loadSVG(params.source);
+      const image = await loadSVG(
+        params.source
+      );
       return image;
     } else if (params && params.type === 'html') {
-      const image = await loadHTML(params.source, {
-        width: params.elemW,
-        height: params.elemH
-      });
+      const image = await loadHTML(
+        params.source, {
+          width: params.elemW, height: params.elemH
+        }
+      );
       return image;
     }
-    throw Error("Element's source is not support!");
+    throw Error('Element\'s source is not support!');
   }
 }
+
+

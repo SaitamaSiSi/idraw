@@ -1,4 +1,4 @@
-import { IDrawContext, BoardSizeOptions } from '@idraw/types';
+import { TypeContext, TypeBoardSizeOptions } from 'idraw_zyh_types';
 
 type Options = {
   width: number;
@@ -6,24 +6,24 @@ type Options = {
   contextWidth: number;
   contextHeight: number;
   devicePixelRatio: number;
-};
+}
 
 type Transform = {
   scale?: number;
   scrollX?: number;
   scrollY?: number;
-};
+}
 
 type PrivateTransform = {
   scale: number;
   scrollX: number;
   scrollY: number;
-};
+}
 
-class Context implements IDrawContext {
+class Context implements TypeContext {
   private _opts: Options;
   private _ctx: CanvasRenderingContext2D;
-  private _transform: PrivateTransform;
+  private _transform: PrivateTransform; 
 
   // private _scale: number;
   // private _scrollX: number;
@@ -35,15 +35,15 @@ class Context implements IDrawContext {
     this._transform = {
       scale: 1,
       scrollX: 0,
-      scrollY: 0
+      scrollY: 0,
     };
   }
   getContext(): CanvasRenderingContext2D {
     return this._ctx;
   }
 
-  resetSize(opts: BoardSizeOptions) {
-    this._opts = { ...this._opts, ...opts };
+  resetSize(opts: TypeBoardSizeOptions) {
+    this._opts = {...this._opts, ...opts};
   }
 
   calcDeviceNum(num: number): number {
@@ -55,24 +55,24 @@ class Context implements IDrawContext {
   }
 
   getSize() {
-    return {
+    return  {
       width: this._opts.width,
       height: this._opts.height,
       contextWidth: this._opts.contextWidth,
       contextHeight: this._opts.contextHeight,
-      devicePixelRatio: this._opts.devicePixelRatio
+      devicePixelRatio: this._opts.devicePixelRatio,
     };
   }
 
   setTransform(config: Transform) {
-    this._transform = { ...this._transform, ...config };
+    this._transform = {...this._transform, ...config};
   }
 
   getTransform() {
     return {
       scale: this._transform.scale,
       scrollX: this._transform.scrollX,
-      scrollY: this._transform.scrollY
+      scrollY: this._transform.scrollY,
     };
   }
 
@@ -84,36 +84,17 @@ class Context implements IDrawContext {
     return this._ctx.fill(fillRule || 'nonzero');
   }
 
-  arc(
-    x: number,
-    y: number,
-    radius: number,
-    startAngle: number,
-    endAngle: number,
-    anticlockwise?: boolean | undefined
-  ): void {
-    return this._ctx.arc(
-      this._doSize(x),
-      this._doSize(y),
-      this._doSize(radius),
-      startAngle,
-      endAngle,
-      anticlockwise
-    );
+  arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, anticlockwise?: boolean | undefined): void {
+    return this._ctx.arc(this._doSize(x), this._doSize(y), this._doSize(radius), startAngle, endAngle, anticlockwise);
   }
 
   rect(x: number, y: number, w: number, h: number) {
-    return this._ctx.rect(
-      this._doSize(x),
-      this._doSize(y),
-      this._doSize(w),
-      this._doSize(h)
-    );
+    return this._ctx.rect(this._doSize(x), this._doSize(y), this._doSize(w), this._doSize(h));
   }
-
+  
   fillRect(x: number, y: number, w: number, h: number) {
     return this._ctx.fillRect(
-      this._doSize(x),
+      this._doSize(x), 
       this._doSize(y),
       this._doSize(w),
       this._doSize(h)
@@ -122,7 +103,7 @@ class Context implements IDrawContext {
 
   clearRect(x: number, y: number, w: number, h: number) {
     return this._ctx.clearRect(
-      this._doSize(x),
+      this._doSize(x), 
       this._doSize(y),
       this._doSize(w),
       this._doSize(h)
@@ -146,21 +127,15 @@ class Context implements IDrawContext {
   }
 
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void {
-    return this._ctx.arcTo(
-      this._doSize(x1),
-      this._doSize(y1),
-      this._doSize(x2),
-      this._doSize(y2),
-      this._doSize(radius)
-    );
+    return this._ctx.arcTo(this._doSize(x1), this._doSize(y1), this._doSize(x2), this._doSize(y2), this._doSize(radius));
   }
 
   setLineWidth(w: number) {
-    return (this._ctx.lineWidth = this._doSize(w));
+    return this._ctx.lineWidth = this._doSize(w);
   }
 
   setLineDash(nums: number[]) {
-    return this._ctx.setLineDash(nums.map((n) => this._doSize(n)));
+    return this._ctx.setLineDash(nums.map(n => this._doSize(n)));
   }
 
   isPointInPath(x: number, y: number) {
@@ -182,7 +157,7 @@ class Context implements IDrawContext {
   translate(x: number, y: number) {
     return this._ctx.translate(this._doSize(x), this._doSize(y));
   }
-
+  
   rotate(angle: number) {
     return this._ctx.rotate(angle);
   }
@@ -200,32 +175,13 @@ class Context implements IDrawContext {
     const dh: number = args[args.length - 1];
 
     if (args.length === 9) {
-      return this._ctx.drawImage(
-        image,
-        this._doSize(sx),
-        this._doSize(sy),
-        this._doSize(sw),
-        this._doSize(sh),
-        this._doSize(dx),
-        this._doSize(dy),
-        this._doSize(dw),
-        this._doSize(dh)
-      );
+      return this._ctx.drawImage(image, this._doSize(sx), this._doSize(sy), this._doSize(sw), this._doSize(sh), this._doSize(dx), this._doSize(dy), this._doSize(dw), this._doSize(dh));
     } else {
-      return this._ctx.drawImage(
-        image,
-        this._doSize(dx),
-        this._doSize(dy),
-        this._doSize(dw),
-        this._doSize(dh)
-      );
+      return this._ctx.drawImage(image,this._doSize(dx), this._doSize(dy), this._doSize(dw), this._doSize(dh));
     }
   }
 
-  createPattern(
-    image: CanvasImageSource,
-    repetition: string | null
-  ): CanvasPattern | null {
+  createPattern(image: CanvasImageSource, repetition: string | null): CanvasPattern | null {
     return this._ctx.createPattern(image, repetition);
   }
 
@@ -237,47 +193,23 @@ class Context implements IDrawContext {
     this._ctx.textAlign = align;
   }
 
-  fillText(
-    text: string,
-    x: number,
-    y: number,
-    maxWidth?: number | undefined
-  ): void {
+  fillText(text: string, x: number, y: number, maxWidth?: number | undefined): void {
     if (maxWidth !== undefined) {
-      return this._ctx.fillText(
-        text,
-        this._doSize(x),
-        this._doSize(y),
-        this._doSize(maxWidth)
-      );
+      return this._ctx.fillText(text, this._doSize(x), this._doSize(y), this._doSize(maxWidth));
     } else {
       return this._ctx.fillText(text, this._doSize(x), this._doSize(y));
     }
   }
 
-  strokeText(
-    text: string,
-    x: number,
-    y: number,
-    maxWidth?: number | undefined
-  ): void {
+  strokeText(text: string, x: number, y: number, maxWidth?: number | undefined): void {
     if (maxWidth !== undefined) {
-      return this._ctx.strokeText(
-        text,
-        this._doSize(x),
-        this._doSize(y),
-        this._doSize(maxWidth)
-      );
+      return this._ctx.strokeText(text, this._doSize(x), this._doSize(y), this._doSize(maxWidth));
     } else {
       return this._ctx.strokeText(text, this._doSize(x), this._doSize(y));
     }
   }
 
-  setFont(opts: {
-    fontSize: number;
-    fontFamily?: string;
-    fontWeight?: 'bold';
-  }): void {
+  setFont(opts: { fontSize: number, fontFamily?: string, fontWeight?: 'bold' }): void {
     const strList: string[] = [];
     if (opts.fontWeight === 'bold') {
       strList.push(`${opts.fontWeight}`);
@@ -299,7 +231,7 @@ class Context implements IDrawContext {
   save() {
     this._ctx.save();
   }
-
+  
   restore() {
     this._ctx.restore();
   }
@@ -325,25 +257,10 @@ class Context implements IDrawContext {
   }
 
   ellipse(
-    x: number,
-    y: number,
-    radiusX: number,
-    radiusY: number,
-    rotation: number,
-    startAngle: number,
-    endAngle: number,
-    counterclockwise?: boolean | undefined
+    x: number,y: number, radiusX: number, radiusY: number,
+    rotation: number, startAngle: number, endAngle: number, counterclockwise?: boolean | undefined
   ) {
-    this._ctx.ellipse(
-      this._doSize(x),
-      this._doSize(y),
-      this._doSize(radiusX),
-      this._doSize(radiusY),
-      rotation,
-      startAngle,
-      endAngle,
-      counterclockwise
-    );
+    this._ctx.ellipse(this._doSize(x), this._doSize(y), this._doSize(radiusX), this._doSize(radiusY), rotation, startAngle, endAngle, counterclockwise)
   }
 
   private _doSize(num: number) {
@@ -361,6 +278,8 @@ class Context implements IDrawContext {
     const _y = (y - scrollY) / scale;
     return this._doSize(_y);
   }
+  
+
 }
 
 export default Context;

@@ -1,32 +1,33 @@
-import * as util from '../src';
+import util from '../src/default';
 
 const types = {
-  Context: 'Function',
-  check: 'Object',
-  compose: 'Function',
-  createUUID: 'Function',
-  deepClone: 'Function',
-  delay: 'Function',
-  downloadImageFromCanvas: 'Function',
-  is: 'Object',
-  isColorStr: 'Function',
-  istype: 'Object',
-  loadHTML: 'AsyncFunction',
-  loadImage: 'Function',
-  loadSVG: 'AsyncFunction',
-  throttle: 'Function',
-  toColorHexNum: 'Function',
-  toColorHexStr: 'Function',
-  default: 'Object'
-};
+  'Context': 'Function',
+  'check': 'Object',
+  'compose': 'Function',
+  'createUUID': 'Function',
+  'deepClone': 'Function',
+  'delay': 'Function',
+  'downloadImageFromCanvas': 'Function',
+  'is': 'Object',
+  'isColorStr': 'Function',
+  'istype': 'Object',
+  'loadHTML': 'AsyncFunction',
+  'loadImage': 'Function',
+  'loadSVG': 'AsyncFunction',
+  'throttle': 'Function',
+  'toColorHexNum': 'Function',
+  'toColorHexStr': 'Function'
+}
 
-function getType(data: any): string {
+function getType (data: any): string {
   const typeStr = Object.prototype.toString.call(data) || '';
-  const result = typeStr.replace(/(\[object|\])/gi, '').trim();
+  const result = typeStr.replace(/(\[object|\])/ig, '').trim();
   return result;
 }
 
-describe('@idraw/util', () => {
+
+describe('idraw_zyh_util', () => {
+
   test('index', async () => {
     const keys = Object.keys(util);
     keys.forEach((key) => {
@@ -36,4 +37,6 @@ describe('@idraw/util', () => {
       expect(type).toStrictEqual(types[key]);
     });
   });
+
 });
+

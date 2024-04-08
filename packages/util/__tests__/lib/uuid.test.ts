@@ -3,7 +3,7 @@ import {
 } from '../../src/lib/uuid';
 
 
-describe('@idraw/util: lib/uuid', () => {
+describe('idraw_zyh_util: lib/uuid', () => {
   
   test('createUUID', async () => { 
     const uuid = createUUID();

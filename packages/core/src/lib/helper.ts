@@ -1,33 +1,28 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
-  IDrawData,
-  HelperConfig,
-  HelperUpdateOpts,
-  HelperWrapperControllerDirection,
-  DataElement,
-  DataElemDesc,
-  IDrawContext,
-  Point,
-  IDrawConfigStrict,
-  HeplerSelectedElementWrapper
-} from '@idraw/types';
-import Board from '@idraw/board';
-import { deepClone } from '@idraw/util';
+  TypeData, TypeHelper, TypeHelperConfig, TypeHelperUpdateOpts,
+  TypeHelperWrapperControllerDirection, TypeElement,
+  TypeElemDesc, TypeContext, TypePoint, TypeConfigStrict,
+  TypeHeplerSelectedElementWrapper
+} from 'idraw_zyh_types';
+import { Board } from 'idraw_zyh_board';
+import { deepClone } from 'idraw_zyh_util';
 import { parseAngleToRadian, calcElementCenter } from './calculate';
 import { rotateContext, rotateElement } from './transform';
 import { LIMIT_QBLIQUE_ANGLE } from './../constant/element';
 
 const limitQbliqueAngle = LIMIT_QBLIQUE_ANGLE;
 
-export class Helper {
-  private _helperConfig: HelperConfig;
-  private _coreConfig: IDrawConfigStrict;
-  private _ctx: IDrawContext;
-  private _board: Board;
-  private _areaStart: Point = { x: 0, y: 0 };
-  private _areaEnd: Point = { x: 0, y: 0 };
 
-  constructor(board: Board, config: IDrawConfigStrict) {
+export class Helper implements TypeHelper {
+
+  private _helperConfig: TypeHelperConfig;
+  private _coreConfig: TypeConfigStrict;
+  private _ctx: TypeContext;
+  private _board: Board;
+  private _areaStart: TypePoint = { x: 0, y: 0 };
+  private _areaEnd: TypePoint = { x: 0, y: 0 };
+
+  constructor(board: Board, config: TypeConfigStrict) {
     this._board = board;
     this._ctx = this._board.getContext();
     this._coreConfig = config;
@@ -36,13 +31,16 @@ export class Helper {
     };
   }
 
-  updateConfig(data: IDrawData, opts: HelperUpdateOpts): void {
+  updateConfig (
+    data: TypeData,
+    opts: TypeHelperUpdateOpts
+  ): void {
     this._updateElementIndex(data);
     this._updateSelectedElementWrapper(data, opts);
     this._updateSelectedElementListWrapper(data, opts);
   }
 
-  getConfig(): HelperConfig {
+  getConfig(): TypeHelperConfig {
     return deepClone(this._helperConfig);
   }
 
@@ -54,29 +52,20 @@ export class Helper {
     return null;
   }
 
-  isPointInElementWrapperController(
-    p: Point,
-    data?: IDrawData
-  ): {
-    uuid: string | null | undefined;
-    selectedControllerDirection: HelperWrapperControllerDirection | null;
-    hoverControllerDirection: HelperWrapperControllerDirection | null;
-    directIndex: number | null;
+  isPointInElementWrapperController(p: TypePoint, data?: TypeData): 
+  {
+    uuid: string | null | undefined, 
+    selectedControllerDirection: TypeHelperWrapperControllerDirection | null,
+    hoverControllerDirection: TypeHelperWrapperControllerDirection | null,
+    directIndex: number | null,
   } {
     const ctx = this._ctx;
     const uuid = this._helperConfig?.selectedElementWrapper?.uuid || null;
     let directIndex = null;
-    let selectedControllerDirection: HelperWrapperControllerDirection | null =
-      null;
-    let hoverControllerDirection: HelperWrapperControllerDirection | null =
-      null;
+    let selectedControllerDirection: TypeHelperWrapperControllerDirection | null = null;
+    let hoverControllerDirection: TypeHelperWrapperControllerDirection | null = null;
     if (!this._helperConfig.selectedElementWrapper) {
-      return {
-        uuid,
-        selectedControllerDirection,
-        directIndex,
-        hoverControllerDirection
-      };
+      return {uuid, selectedControllerDirection, directIndex, hoverControllerDirection};
     }
     const wrapper = this._helperConfig.selectedElementWrapper;
     const controllers = [
@@ -87,17 +76,17 @@ export class Helper {
       wrapper.controllers.left,
       wrapper.controllers.bottomLeft,
       wrapper.controllers.bottom,
-      wrapper.controllers.bottomRight
+      wrapper.controllers.bottomRight,
     ];
-    const directionNames: HelperWrapperControllerDirection[] = [
+    let directionNames: TypeHelperWrapperControllerDirection[] = [
       'right',
       'top-right',
       'top',
       'top-left',
-      'left',
+      'left', 
       'bottom-left',
       'bottom',
-      'bottom-right'
+      'bottom-right',
     ];
     let hoverDirectionNames = deepClone(directionNames);
 
@@ -106,50 +95,41 @@ export class Helper {
       const elemIdx = this.getElementIndexByUUID(uuid);
       if (elemIdx !== null && elemIdx >= 0) {
         const elem = data.elements[elemIdx];
-        let angle = elem.angle || 0;
+        let angle = elem.angle;
         if (angle < 0) {
           angle += 360;
         }
         if (angle < 45) {
-          angleMoveNum = 0;
+          angleMoveNum = 0
         } else if (angle < 90) {
-          angleMoveNum = 1;
+          angleMoveNum = 1
         } else if (angle < 135) {
-          angleMoveNum = 2;
+          angleMoveNum = 2
         } else if (angle < 180) {
-          angleMoveNum = 3;
+          angleMoveNum = 3
         } else if (angle < 225) {
-          angleMoveNum = 4;
+          angleMoveNum = 4
         } else if (angle < 270) {
-          angleMoveNum = 5;
+          angleMoveNum = 5
         } else if (angle < 315) {
-          angleMoveNum = 6;
+          angleMoveNum = 6
         }
       }
     }
     if (angleMoveNum > 0) {
-      hoverDirectionNames = hoverDirectionNames
-        .slice(-angleMoveNum)
-        .concat(hoverDirectionNames.slice(0, -angleMoveNum));
+      hoverDirectionNames = hoverDirectionNames.slice(-angleMoveNum).concat(hoverDirectionNames.slice(0, -angleMoveNum))
     }
 
     rotateContext(ctx, wrapper.translate, wrapper.radian || 0, () => {
-      for (let i = 0; i < controllers.length; i++) {
+      for (let i = 0; i < controllers.length; i ++) {
         const controller = controllers[i];
         if (controller.invisible === true) {
           continue;
         }
 
         ctx.beginPath();
-        ctx.arc(
-          controller.x,
-          controller.y,
-          wrapper.controllerSize,
-          0,
-          Math.PI * 2
-        );
+        ctx.arc(controller.x, controller.y, wrapper.controllerSize, 0, Math.PI * 2);
         ctx.closePath();
-
         if (ctx.isPointInPath(p.x, p.y)) {
           selectedControllerDirection = directionNames[i];
           hoverControllerDirection = hoverDirectionNames[i];
@@ -166,31 +146,20 @@ export class Helper {
       if (controller.invisible !== true) {
         rotateContext(ctx, wrapper.translate, wrapper.radian || 0, () => {
           ctx.beginPath();
-          ctx.arc(
-            controller.x,
-            controller.y,
-            wrapper.controllerSize,
-            0,
-            Math.PI * 2
-          );
+          ctx.arc(controller.x, controller.y, wrapper.controllerSize, 0, Math.PI * 2);
           ctx.closePath();
           if (ctx.isPointInPath(p.x, p.y)) {
             selectedControllerDirection = 'rotate';
-            hoverControllerDirection = 'rotate';
+            hoverControllerDirection =  'rotate';
           }
         });
       }
     }
-
-    return {
-      uuid,
-      selectedControllerDirection,
-      hoverControllerDirection,
-      directIndex
-    };
+    
+    return {uuid, selectedControllerDirection, hoverControllerDirection, directIndex};
   }
 
-  isPointInElementList(p: Point, data: IDrawData): boolean {
+  isPointInElementList(p: TypePoint, data: TypeData): boolean {
     const ctx = this._ctx;
     let idx = -1;
     let uuid = null;
@@ -231,23 +200,23 @@ export class Helper {
     }
   }
 
-  startSelectArea(p: Point) {
+  startSelectArea(p: TypePoint) {
     this._areaStart = p;
     this._areaEnd = p;
   }
 
-  changeSelectArea(p: Point) {
+  changeSelectArea(p: TypePoint) {
     this._areaEnd = p;
     this._calcSelectedArea();
   }
 
   clearSelectedArea() {
-    this._areaStart = { x: 0, y: 0 };
-    this._areaEnd = { x: 0, y: 0 };
+    this._areaStart = {x: 0, y: 0};
+    this._areaEnd = {x: 0, y: 0};
     this._calcSelectedArea();
   }
 
-  calcSelectedElements(data: IDrawData) {
+  calcSelectedElements(data: TypeData) {
     const transform = this._ctx.getTransform();
     const { scale = 1, scrollX = 0, scrollY = 0 } = transform;
     const start = this._areaStart;
@@ -287,39 +256,32 @@ export class Helper {
     const { scale = 1, scrollX = 0, scrollY = 0 } = transform;
     const elemWrapper = this._coreConfig.elementWrapper;
     const lineWidth = elemWrapper.lineWidth / scale;
-    const lineDash = elemWrapper.lineDash.map((n) => n / scale);
+    const lineDash = elemWrapper.lineDash.map(n => (n / scale));
 
+    
     this._helperConfig.selectedAreaWrapper = {
       x: (Math.min(start.x, end.x) - scrollX) / scale,
       y: (Math.min(start.y, end.y) - scrollY) / scale,
       w: Math.abs(end.x - start.x) / scale,
       h: Math.abs(end.y - start.y) / scale,
-      startPoint: { x: start.x, y: start.y },
-      endPoint: { x: end.x, y: end.y },
+      startPoint: {x: start.x, y: start.y},
+      endPoint: {x: end.x, y: end.y},
       lineWidth: lineWidth,
       lineDash: lineDash,
-      color: elemWrapper.color
+      color: elemWrapper.color,
     };
   }
 
-  private _updateElementIndex(data: IDrawData) {
+  private _updateElementIndex(data: TypeData) {
     this._helperConfig.elementIndexMap = {};
-    data.elements.forEach((elem: DataElement<keyof DataElemDesc>, i) => {
+    data.elements.forEach((elem: TypeElement<keyof TypeElemDesc>, i) => {
       this._helperConfig.elementIndexMap[elem.uuid] = i;
     });
   }
 
-  private _updateSelectedElementWrapper(
-    data: IDrawData,
-    opts: HelperUpdateOpts
-  ) {
+  private _updateSelectedElementWrapper(data: TypeData, opts: TypeHelperUpdateOpts) {
     const { selectedUUID: uuid } = opts;
-    if (
-      !(
-        typeof uuid === 'string' &&
-        this._helperConfig.elementIndexMap[uuid] >= 0
-      )
-    ) {
+    if (!(typeof uuid === 'string' && this._helperConfig.elementIndexMap[uuid] >= 0)) {
       delete this._helperConfig.selectedElementWrapper;
       return;
     }
@@ -332,13 +294,10 @@ export class Helper {
     this._helperConfig.selectedElementWrapper = wrapper;
   }
 
-  private _updateSelectedElementListWrapper(
-    data: IDrawData,
-    opts: HelperUpdateOpts
-  ) {
+  private _updateSelectedElementListWrapper(data: TypeData, opts: TypeHelperUpdateOpts) {
     const { selectedUUIDList } = opts;
-    const wrapperList: HeplerSelectedElementWrapper[] = [];
-    data.elements.forEach((elem) => {
+    const wrapperList: TypeHeplerSelectedElementWrapper[] = [];
+    data.elements.forEach((elem, i) => {
       if (selectedUUIDList?.includes(elem.uuid)) {
         const wrapper = this._createSelectedElementWrapper(elem, opts);
         wrapperList.push(wrapper);
@@ -348,30 +307,27 @@ export class Helper {
   }
 
   private _createSelectedElementWrapper(
-    elem: DataElement<keyof DataElemDesc>,
-    opts: HelperUpdateOpts
-  ): HeplerSelectedElementWrapper {
+    elem: TypeElement<keyof TypeElemDesc>,
+    opts: TypeHelperUpdateOpts
+  ): TypeHeplerSelectedElementWrapper {
     const { scale } = opts;
     const elemWrapper = this._coreConfig.elementWrapper;
     const controllerSize = elemWrapper.controllerSize / scale;
     const lineWidth = elemWrapper.lineWidth / scale;
-    const lineDash = elemWrapper.lineDash.map((n) => n / scale);
+    const lineDash = elemWrapper.lineDash.map(n => (n / scale));
 
     const rotateLimit = 12;
     // @ts-ignore
-    const bw = elem.desc?.borderWidth || 0;
+    const bw = elem.desc?.borderWidth || 0;  
     let hideObliqueDirection = false;
-    if (
-      typeof elem.angle === 'number' &&
-      Math.abs(elem.angle) > limitQbliqueAngle
-    ) {
+    if (typeof elem.angle === 'number' && Math.abs(elem.angle) > limitQbliqueAngle) {
       hideObliqueDirection = true;
     }
     // TODO
     // const controllerOffset = controllerSize;
     const controllerOffset = lineWidth;
-
-    const wrapper: HeplerSelectedElementWrapper = {
+    
+    const wrapper: TypeHeplerSelectedElementWrapper = {
       uuid: elem.uuid,
       controllerSize: controllerSize,
       controllerOffset: controllerOffset,
@@ -380,19 +336,17 @@ export class Helper {
         topLeft: {
           x: elem.x - controllerOffset - bw,
           y: elem.y - controllerOffset - bw,
-          invisible:
-            hideObliqueDirection || elem?.operation?.disableScale === true
+          invisible: hideObliqueDirection || elem?.operation?.disableScale === true,
         },
         top: {
           x: elem.x + elem.w / 2,
           y: elem.y - controllerOffset - bw,
-          invisible: elem?.operation?.disableScale === true
+          invisible: elem?.operation?.disableScale === true,
         },
         topRight: {
           x: elem.x + elem.w + controllerOffset + bw,
           y: elem.y - controllerOffset - bw,
-          invisible:
-            hideObliqueDirection || elem?.operation?.disableScale === true
+          invisible: hideObliqueDirection || elem?.operation?.disableScale === true,
         },
         right: {
           x: elem.x + elem.w + controllerOffset + bw,
@@ -402,19 +356,17 @@ export class Helper {
         bottomRight: {
           x: elem.x + elem.w + controllerOffset + bw,
           y: elem.y + elem.h + controllerOffset + bw,
-          invisible:
-            hideObliqueDirection || elem?.operation?.disableScale === true
+          invisible: hideObliqueDirection || elem?.operation?.disableScale === true,
         },
         bottom: {
           x: elem.x + elem.w / 2,
           y: elem.y + elem.h + controllerOffset + bw,
-          invisible: elem?.operation?.disableScale === true
+          invisible: elem?.operation?.disableScale === true,
         },
         bottomLeft: {
           x: elem.x - controllerOffset - bw,
           y: elem.y + elem.h + controllerOffset + bw,
-          invisible:
-            hideObliqueDirection || elem?.operation?.disableScale === true
+          invisible: hideObliqueDirection || elem?.operation?.disableScale === true,
         },
         left: {
           x: elem.x - controllerOffset - bw,
@@ -424,15 +376,12 @@ export class Helper {
         rotate: {
           x: elem.x + elem.w / 2,
           y: elem.y - controllerSize - (controllerSize * 2 + rotateLimit) - bw,
-          invisible: elem?.operation?.disableRotate === true
+          invisible: elem?.operation?.disbaleRotate === true
         }
       },
       lineWidth: lineWidth,
       lineDash: lineDash,
-      color:
-        elem?.operation?.lock === true
-          ? elemWrapper.lockColor
-          : elemWrapper.color
+      color: elem?.operation?.lock === true ? elemWrapper.lockColor : elemWrapper.color,
     };
 
     if (typeof elem.angle === 'number' && (elem.angle > 0 || elem.angle < 0)) {
@@ -442,4 +391,5 @@ export class Helper {
 
     return wrapper;
   }
+  
 }

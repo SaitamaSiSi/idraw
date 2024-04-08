@@ -3,7 +3,7 @@ import {
 } from '../../src/lib/data';
 
 
-describe('@idraw/util: lib/data', () => {
+describe('idraw_zyh_util: lib/data', () => {
   const json = {
     num: 123,
     str: 'abc',

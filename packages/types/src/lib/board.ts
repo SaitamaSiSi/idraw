@@ -1,48 +1,37 @@
-type Point = {
+type TypePoint = {
   x: number;
   y: number;
-};
+}
 
-type BoardScrollConfig = {
-  color: string;
-  width: number;
-  showBackground?: boolean;
-};
+type TypeBoardScrollConfig = {
+  color: string,
+  lineWidth: number
+}
 
-type BoardSizeOptions = {
+type TypeBoardSizeOptions = {
   width?: number;
   height?: number;
   contextWidth?: number;
   contextHeight?: number;
   devicePixelRatio?: number;
-};
+}
 
-type BoardOptions = BoardSizeOptions & {
+type TypeBoardOptions = TypeBoardSizeOptions & {
   width: number;
   height: number;
   contextWidth: number;
   contextHeight: number;
   canScroll?: boolean;
-  scrollConfig?: BoardScrollConfig;
-};
+  scrollConfig?: TypeBoardScrollConfig
+}
 
-type PointCursor =
-  | 'auto'
-  | 'move'
-  | 'n-resize'
-  | 'e-resize'
-  | 's-resize'
-  | 'w-resize'
-  | 'ne-resize'
-  | 'nw-resize'
-  | 'se-resize'
-  | 'sw-resize'
-  | 'grab';
+type TypePointCursor = 'auto' | 'move' | 'n-resize' | 'e-resize' | 's-resize' | 'w-resize'
+| 'ne-resize' | 'nw-resize' | 'se-resize' | 'sw-resize' | 'grab';
 
 export {
-  Point,
-  PointCursor,
-  BoardSizeOptions,
-  BoardOptions,
-  BoardScrollConfig
+  TypePoint,
+  TypePointCursor,
+  TypeBoardSizeOptions,
+  TypeBoardOptions,
+  TypeBoardScrollConfig,
 };

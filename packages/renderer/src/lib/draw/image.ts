@@ -1,13 +1,17 @@
-import { IDrawContext, DataElement } from '@idraw/types';
+import {
+  TypeContext,
+  TypeElement,
+} from 'idraw_zyh_types';
 import { rotateElement } from '../transform';
 import Loader from '../loader';
+ 
 
-export function drawImage(
-  ctx: IDrawContext,
-  elem: DataElement<'image'>,
-  loader: Loader
+export function drawImage (
+  ctx: TypeContext,
+  elem: TypeElement<'image'>,
+  loader: Loader,
 ) {
-  // const desc = elem.desc as DataElemDesc['rect'];
+  // const desc = elem.desc as TypeElemDesc['rect'];
   const content = loader.getContent(elem.uuid);
   rotateElement(ctx, elem, () => {
     // ctx.setFillStyle(desc.color);
@@ -19,23 +23,31 @@ export function drawImage(
   });
 }
 
+
+
 // import {
-//   IDrawContext,
-//   DataElement,
-//   HelperConfig,
-//   DataElemDesc,
+//   TypeContext, 
+//   TypeElement,
+//   TypeHelperConfig,
+//   TypeElemDesc,
 // } from '@idraw/types';
 // import Loader from '../loader';
 // import { drawBox } from './base';
 
 // export function drawImage(
-//   ctx: IDrawContext,
-//   elem: DataElement<'image'>,
+//   ctx: TypeContext,
+//   elem: TypeElement<'image'>,
 //   loader: Loader,
-//   helperConfig: HelperConfig
+//   helperConfig: TypeHelperConfig
 // ) {
 //   const content = loader.getPattern(elem, {
 //     forceUpdate: helperConfig?.selectedElementWrapper?.uuid === elem.uuid
 //   });
 //   drawBox(ctx, elem, content);
 // }
+
+
+
+
+ 
+

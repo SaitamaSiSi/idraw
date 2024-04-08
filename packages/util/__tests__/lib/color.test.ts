@@ -5,7 +5,7 @@ import {
 } from '../../src/lib/color';
 
 
-describe('@idraw/util: lib/color', () => {
+describe('idraw_zyh_util: lib/color', () => {
   const hex = '#f0f0f0';
   const num = 15790320;
 

@@ -1,16 +1,16 @@
-import { Point } from '@idraw/types';
+import { TypePoint } from 'idraw_zyh_types'
 
 type TempDataDesc = {
-  prevClickPoint: (Point & { t: number }) | null;
+  prevClickPoint: TypePoint & { t: number } | null,
   isHoverCanvas: boolean;
   isDragCanvas: boolean;
   statusMap: {
-    canScrollYPrev: boolean;
-    canScrollYNext: boolean;
-    canScrollXPrev: boolean;
-    canScrollXNext: boolean;
-  };
-};
+    canScrollYPrev: boolean,
+    canScrollYNext: boolean,
+    canScrollXPrev: boolean,
+    canScrollXNext: boolean,
+  }
+}
 
 function createTempData() {
   return {
@@ -21,23 +21,24 @@ function createTempData() {
       canScrollYPrev: true,
       canScrollYNext: true,
       canScrollXPrev: true,
-      canScrollXNext: true
+      canScrollXNext: true,
     }
-  };
+  }
 }
 
 export class TempData {
-  private _temp: TempDataDesc;
+
+  private _temp: TempDataDesc
 
   constructor() {
     this._temp = createTempData();
   }
 
-  set<T extends keyof TempDataDesc>(name: T, value: TempDataDesc[T]) {
+  set<T extends keyof TempDataDesc >(name: T, value:  TempDataDesc[T]) {
     this._temp[name] = value;
   }
 
-  get<T extends keyof TempDataDesc>(name: T): TempDataDesc[T] {
+  get<T extends keyof TempDataDesc >(name: T): TempDataDesc[T] {
     return this._temp[name];
   }
 

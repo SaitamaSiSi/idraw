@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`@idraw/board: src/lib/context Context 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "height": 1800,
       "width": 2000,
       "x": 0,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -19,14 +19,14 @@ exports[`@idraw/board: src/lib/context Context 1`] = `
     ],
     "type": "clearRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 1800,
       "width": 2000,
       "x": 0,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -36,14 +36,14 @@ exports[`@idraw/board: src/lib/context Context 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 240,
       "width": 400,
       "x": 20,
       "y": 20,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -53,14 +53,14 @@ exports[`@idraw/board: src/lib/context Context 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 240,
       "width": 400,
       "x": 160,
       "y": 160,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -70,14 +70,14 @@ exports[`@idraw/board: src/lib/context Context 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 240,
       "width": 400,
       "x": 320,
       "y": 320,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -87,14 +87,14 @@ exports[`@idraw/board: src/lib/context Context 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 200,
       "width": 400,
       "x": 780,
       "y": 580,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -108,14 +108,14 @@ exports[`@idraw/board: src/lib/context Context 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.arc 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -125,8 +125,8 @@ exports[`@idraw/board: src/lib/context Context.arc 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "anticlockwise": true,
             "endAngle": 6.283185307179586,
             "radius": 100,
@@ -134,7 +134,7 @@ exports[`@idraw/board: src/lib/context Context.arc 1`] = `
             "x": 140,
             "y": 160,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -146,7 +146,7 @@ exports[`@idraw/board: src/lib/context Context.arc 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -160,14 +160,14 @@ exports[`@idraw/board: src/lib/context Context.arc 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.arcTo 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -177,15 +177,15 @@ exports[`@idraw/board: src/lib/context Context.arcTo 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "cpx1": 100,
             "cpx2": 200,
             "cpy1": 100,
             "cpy2": 200,
             "radius": 12.566370614359172,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -197,7 +197,7 @@ exports[`@idraw/board: src/lib/context Context.arcTo 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -211,14 +211,14 @@ exports[`@idraw/board: src/lib/context Context.arcTo 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.beginPath 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -230,7 +230,7 @@ exports[`@idraw/board: src/lib/context Context.beginPath 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -244,15 +244,15 @@ exports[`@idraw/board: src/lib/context Context.beginPath 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.clearRect 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "height": 1800,
       "width": 2000,
       "x": 0,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -266,14 +266,14 @@ exports[`@idraw/board: src/lib/context Context.clearRect 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.closePath 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -283,9 +283,9 @@ exports[`@idraw/board: src/lib/context Context.closePath 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {},
-          "transform": [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -297,7 +297,7 @@ exports[`@idraw/board: src/lib/context Context.closePath 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -311,15 +311,15 @@ exports[`@idraw/board: src/lib/context Context.closePath 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.createPattern 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "height": 600,
       "width": 600,
       "x": 0,
       "y": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -333,9 +333,9 @@ exports[`@idraw/board: src/lib/context Context.createPattern 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.drawImage 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "dHeight": 0,
       "dWidth": 0,
       "dx": 22,
@@ -346,7 +346,7 @@ exports[`@idraw/board: src/lib/context Context.drawImage 1`] = `
       "sx": 0,
       "sy": 0,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -356,8 +356,8 @@ exports[`@idraw/board: src/lib/context Context.drawImage 1`] = `
     ],
     "type": "drawImage",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "dHeight": 104,
       "dWidth": 102,
       "dx": 22,
@@ -368,7 +368,7 @@ exports[`@idraw/board: src/lib/context Context.drawImage 1`] = `
       "sx": 122,
       "sy": 124,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -382,14 +382,14 @@ exports[`@idraw/board: src/lib/context Context.drawImage 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.fill 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -401,7 +401,7 @@ exports[`@idraw/board: src/lib/context Context.fill 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -415,15 +415,15 @@ exports[`@idraw/board: src/lib/context Context.fill 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.fillRect 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "height": 200,
       "width": 160,
       "x": 20,
       "y": 40,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -437,15 +437,15 @@ exports[`@idraw/board: src/lib/context Context.fillRect 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.fillText 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "maxWidth": null,
       "text": "Hello world",
       "x": 100,
       "y": 200,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -459,14 +459,14 @@ exports[`@idraw/board: src/lib/context Context.fillText 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.lineTo 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -476,12 +476,12 @@ exports[`@idraw/board: src/lib/context Context.lineTo 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "x": 20,
             "y": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -493,7 +493,7 @@ exports[`@idraw/board: src/lib/context Context.lineTo 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -507,14 +507,14 @@ exports[`@idraw/board: src/lib/context Context.lineTo 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.moveTo 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -524,12 +524,12 @@ exports[`@idraw/board: src/lib/context Context.moveTo 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "x": 20,
             "y": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -541,7 +541,7 @@ exports[`@idraw/board: src/lib/context Context.moveTo 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -555,14 +555,14 @@ exports[`@idraw/board: src/lib/context Context.moveTo 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.rect 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "fillRule": "nonzero",
-      "path": [
-        {
-          "props": {},
-          "transform": [
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -572,14 +572,14 @@ exports[`@idraw/board: src/lib/context Context.rect 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "height": 400,
             "width": 200,
             "x": 20,
             "y": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -591,7 +591,7 @@ exports[`@idraw/board: src/lib/context Context.rect 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -605,15 +605,15 @@ exports[`@idraw/board: src/lib/context Context.rect 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.restore 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "height": 200,
       "width": 200,
       "x": 20,
       "y": 20,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -623,14 +623,14 @@ exports[`@idraw/board: src/lib/context Context.restore 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 200,
       "width": 200,
       "x": 300,
       "y": 150,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -644,13 +644,13 @@ exports[`@idraw/board: src/lib/context Context.restore 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.rotate 1`] = `
-[
-  {
-    "props": {
-      "path": [
-        {
-          "props": {},
-          "transform": [
+Array [
+  Object {
+    "props": Object {
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -660,14 +660,14 @@ exports[`@idraw/board: src/lib/context Context.rotate 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "height": 400,
             "width": 200,
             "x": 20,
             "y": 40,
           },
-          "transform": [
+          "transform": Array [
             0.8660254037844387,
             0.49999999999999994,
             -0.49999999999999994,
@@ -679,7 +679,7 @@ exports[`@idraw/board: src/lib/context Context.rotate 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       0.8660254037844387,
       0.49999999999999994,
       -0.49999999999999994,
@@ -693,15 +693,15 @@ exports[`@idraw/board: src/lib/context Context.rotate 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.save 1`] = `
-[
-  {
-    "props": {
+Array [
+  Object {
+    "props": Object {
       "height": 200,
       "width": 200,
       "x": 20,
       "y": 20,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -711,14 +711,14 @@ exports[`@idraw/board: src/lib/context Context.save 1`] = `
     ],
     "type": "fillRect",
   },
-  {
-    "props": {
+  Object {
+    "props": Object {
       "height": 200,
       "width": 200,
       "x": 300,
       "y": 150,
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -732,13 +732,13 @@ exports[`@idraw/board: src/lib/context Context.save 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.scale 1`] = `
-[
-  {
-    "props": {
-      "path": [
-        {
-          "props": {},
-          "transform": [
+Array [
+  Object {
+    "props": Object {
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -748,14 +748,14 @@ exports[`@idraw/board: src/lib/context Context.scale 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "height": 400,
             "width": 200,
             "x": 20,
             "y": 40,
           },
-          "transform": [
+          "transform": Array [
             2,
             0,
             0,
@@ -767,7 +767,7 @@ exports[`@idraw/board: src/lib/context Context.scale 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       2,
       0,
       0,
@@ -781,13 +781,13 @@ exports[`@idraw/board: src/lib/context Context.scale 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.stroke 1`] = `
-[
-  {
-    "props": {
-      "path": [
-        {
-          "props": {},
-          "transform": [
+Array [
+  Object {
+    "props": Object {
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -797,14 +797,14 @@ exports[`@idraw/board: src/lib/context Context.stroke 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "height": 400,
             "width": 200,
             "x": 20,
             "y": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -816,7 +816,7 @@ exports[`@idraw/board: src/lib/context Context.stroke 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,
@@ -830,13 +830,13 @@ exports[`@idraw/board: src/lib/context Context.stroke 1`] = `
 `;
 
 exports[`@idraw/board: src/lib/context Context.translate 1`] = `
-[
-  {
-    "props": {
-      "path": [
-        {
-          "props": {},
-          "transform": [
+Array [
+  Object {
+    "props": Object {
+      "path": Array [
+        Object {
+          "props": Object {},
+          "transform": Array [
             1,
             0,
             0,
@@ -846,14 +846,14 @@ exports[`@idraw/board: src/lib/context Context.translate 1`] = `
           ],
           "type": "beginPath",
         },
-        {
-          "props": {
+        Object {
+          "props": Object {
             "height": 400,
             "width": 200,
             "x": 20,
             "y": 40,
           },
-          "transform": [
+          "transform": Array [
             1,
             0,
             0,
@@ -865,7 +865,7 @@ exports[`@idraw/board: src/lib/context Context.translate 1`] = `
         },
       ],
     },
-    "transform": [
+    "transform": Array [
       1,
       0,
       0,

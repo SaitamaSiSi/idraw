@@ -101,7 +101,7 @@ const is = {
   x, y, w, h, angle, number,
   borderWidth, borderRadius, color,
   imageSrc, imageURL, imageBase64, svg, html,
-  text, fontSize, lineHeight, lineSpacing textAlign, fontFamily, fontWeight,
+  text, fontSize, lineHeight, lineSpacing, textAlign, fontFamily, fontWeight,
   strokeWidth,
 };
 
