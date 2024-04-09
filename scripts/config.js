@@ -1,28 +1,24 @@
 const packages = [
-  {
-    dirName: 'util',
-    globalName: 'iDrawUtil',
-  },
-  {
-    dirName: 'board',
-    globalName: 'iDrawBoard',
-  },
-  {
-    dirName: 'renderer',
-    globalName: 'iDrawRenderer',
-  },
   // {
-  //   dirName: 'kernal',
-  //   globalName: 'iDrawKernal',
+  //   dirName: 'util',
+  //   globalName: 'iDrawUtil',
   // },
-  {
-    dirName: 'core',
-    globalName: 'iDrawCore',
-  },
-  {
-    dirName: 'idraw',
-    globalName: 'iDraw',
-  },
+  // {
+  //   dirName: 'board',
+  //   globalName: 'iDrawBoard',
+  // },
+  // {
+  //   dirName: 'renderer',
+  //   globalName: 'iDrawRenderer',
+  // },
+  // {
+  //   dirName: 'core',
+  //   globalName: 'iDrawCore',
+  // },
+  // {
+  //   dirName: 'idraw',
+  //   globalName: 'iDraw',
+  // },
 ];
 
 function getTargetPackage(cmdTarget = '') {

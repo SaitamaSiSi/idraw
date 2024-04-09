@@ -1,23 +1,23 @@
-<h1 align="center">iDraw.js</h1>
+<h1 align="center">Fork from iDraw.js v0.3.0-alpha.6</h1>
 
 <p align="center">iDraw.js is a simple JavaScript framework for Drawing on the web.</p>
 
 
 <p align="center">
-  <a title="CI" href="https://github.com/idrawjs/idraw/actions/workflows/node.js.yml">
-    <img src="https://github.com/idrawjs/idraw/actions/workflows/node.js.yml/badge.svg?branch=main" alt="CI">
+  <a title="CI" href="https://github.com/SaitamaSiSi/idraw/actions/workflows/node.js.yml">
+    <img src="https://github.com/SaitamaSiSi/idraw/actions/workflows/node.js.yml/badge.svg?branch=main" alt="CI">
   <a>
 
-  <a href="https://www.npmjs.com/package/idraw">
-    <img src="https://img.shields.io/npm/v/idraw.svg?sanitize=idraw" alt="Version">
+  <a href="https://www.npmjs.com/package/idraw_zyh">
+    <img src="https://img.shields.io/npm/v/idraw_zyh.svg?sanitize=idraw_zyh" alt="Version">
   </a>
-  <a href="https://www.npmjs.com/package/idraw">
-    <img src="https://img.shields.io/npm/l/idraw.svg?sanitize=true" alt="License">
+  <a href="https://www.npmjs.com/package/idraw_zyh">
+    <img src="https://img.shields.io/npm/l/idraw_zyh.svg?sanitize=true" alt="License">
   </a>
 </p>
 
 
-<!-- [![Node.js CI](https://github.com/idrawjs/idraw/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/idrawjs/idraw/actions/workflows/node.js.yml) -->
+<!-- [![Node.js CI](https://github.com/SaitamaSiSi/idraw/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/SaitamaSiSi/idraw/actions/workflows/node.js.yml) -->
 
 <hr/>
 

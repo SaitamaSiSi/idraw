@@ -1,6 +1,6 @@
 {
   "name": "idraw_zyh_board",
-  "version": "0.3.3-alpha.0",
+  "version": "0.3.3-alpha.1",
   "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -26,10 +26,10 @@
   "author": "zhuoyuhan",
   "license": "MIT",
   "devDependencies": {
-    "idraw_zyh_types": "^0.3.3-alpha.0"
+    "idraw_zyh_types": "^0.3.3-alpha.1"
   },
   "dependencies": {
-    "idraw_zyh_util": "^0.3.3-alpha.0"
+    "idraw_zyh_util": "^0.3.3-alpha.1"
   },
   "publishConfig": {
     "access": "public"
