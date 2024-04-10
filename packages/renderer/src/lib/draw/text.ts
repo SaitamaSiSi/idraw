@@ -42,7 +42,7 @@ export function drawText(
     descTextList.forEach((tempText: string, idx: number) => {
       let lineText = '';
       
-      if (tempText.length > 0) {
+      if (tempText.length > 0 && elem.w >= desc.fontSize && ((lines.length + 1) * fontHeight + (lines.length > 0 ? lines.length * lineSpacing : 0)) <= elem.h) {
         for (let i = 0; i < tempText.length; i++) {
           if (ctx.measureText(lineText + (tempText[i] || '')).width < ctx.calcDeviceNum(elem.w)) {
             lineText += (tempText[i] || '');
@@ -62,11 +62,11 @@ export function drawText(
             lineText = (tempText[i] || '');
             lineNum++;
           }
-          if ((lineNum + 1) * fontHeight > elem.h) {
+          if (((lineNum + 1) * fontHeight + (lineNum > 0 ? lineNum * lineSpacing : 0)) > elem.h) {
             break;
           }
           if (tempText.length - 1 === i) {
-            if ((lineNum + 1) * fontHeight < elem.h) {
+            if (((lineNum + 1) * fontHeight + (lineNum > 0 ? lineNum * lineSpacing : 0)) <= elem.h && lineText !== '') {
               lines.push({
                 text: lineText,
                 width: ctx.calcScreenNum(ctx.measureText(lineText).width),

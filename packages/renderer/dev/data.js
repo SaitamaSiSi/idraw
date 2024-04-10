@@ -20,12 +20,13 @@ const data = {
       x: 40,
       y: 40,
       w: 120,
-      h: 290,
+      h: 210,
       // angle: 30,
       type: "text",
       desc: {
         fontSize: 50,
-        text: '文本内容监测',
+        text: 
+`文本内容监测`,
         // text: [0, 1, 2, 3, 4].map(i => `Hello Text ${i}`).join(''),
         color: "#666666",
         lineSpacing: 20,
